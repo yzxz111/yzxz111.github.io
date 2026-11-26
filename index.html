@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>陈炜 · Agent 工程师 / AI 开发实习 · 个人主页</title>
+  <style>
+    :root {
+      --bg: #0b1120;
+      --bg-elev: #111a2e;
+      --bg-card: rgba(17, 26, 46, 0.78);
+      --border: rgba(148, 163, 184, 0.16);
+      --border-strong: rgba(56, 189, 248, 0.35);
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --accent: #38bdf8;
+      --accent-2: #818cf8;
+      --green: #34d399;
+      --amber: #fbbf24;
+      --shadow: 0 20px 50px -15px rgba(2, 6, 23, 0.75);
+      --mono: "JetBrains Mono", "Cascadia Code", Consolas, ui-monospace, SFMono-Regular, monospace;
+      --sans: "PingFang SC", "Microsoft YaHei", "Segoe UI", system-ui, -apple-system, sans-serif;
+    }
+
+    [data-theme="light"] {
+      --bg: #f8fafc;
+      --bg-elev: #ffffff;
+      --bg-card: rgba(255, 255, 255, 0.92);
+      --border: rgba(15, 23, 42, 0.1);
+      --border-strong: rgba(30, 56, 107, 0.3);
+      --text: #0f172a;
+      --text-muted: #475569;
+      --text-dim: #64748b;
+      --accent: #1e386b;
+      --accent-2: #2563eb;
+      --green: #059669;
+      --amber: #d97706;
+      --shadow: 0 18px 40px -18px rgba(15, 23, 42, 0.15);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans);
+      background:
+        radial-gradient(900px 500px at 10% -5%, rgba(56, 189, 248, 0.12), transparent 60%),
+        radial-gradient(800px 480px at 90% 5%, rgba(129, 140, 248, 0.12), transparent 60%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      min-height: 100vh;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 22px;
+    }
+
+    /* Header Nav */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      background: rgba(11, 17, 32, 0.72);
+      border-bottom: 1px solid var(--border);
+    }
+    [data-theme="light"] header {
+      background: rgba(248, 250, 252, 0.85);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      gap: 16px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+    .brand-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 12px var(--green);
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-size: 13.5px;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      background: var(--bg-elev);
+      color: var(--text);
+      cursor: pointer;
+      transition: transform 0.15s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+    .btn:hover {
+      transform: translateY(-1px);
+      border-color: var(--border-strong);
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #ffffff;
+      border: none;
+    }
+    [data-theme="dark"] .btn-primary { color: #071324; }
+
+    /* Hero */
+    .hero {
+      padding: 56px 0 36px;
+      display: grid;
+      grid-template-columns: 1.45fr 1fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 11px;
+      border-radius: 999px;
+      font-size: 12.5px;
+      font-weight: 600;
+      background: rgba(56, 189, 248, 0.1);
+      color: var(--accent);
+      border: 1px solid rgba(56, 189, 248, 0.24);
+    }
+    .badge.green {
+      background: rgba(52, 211, 153, 0.1);
+      color: var(--green);
+      border-color: rgba(52, 211, 153, 0.26);
+    }
+    h1 {
+      font-size: 40px;
+      line-height: 1.18;
+      letter-spacing: -0.5px;
+      margin-bottom: 10px;
+    }
+    .subtitle {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .summary {
+      color: var(--text-muted);
+      font-size: 15.5px;
+      margin-bottom: 24px;
+    }
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    /* Profile Card */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+    .info-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 14px;
+    }
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 9px 0;
+      border-bottom: 1px dashed var(--border);
+      font-size: 14px;
+    }
+    .info-row:last-child { border-bottom: none; }
+    .info-label { color: var(--text-dim); font-size: 13px; }
+    .info-val { font-weight: 600; text-align: right; word-break: break-all; }
+    .copy-chip {
+      font-family: var(--mono);
+      font-size: 13px;
+      padding: 2px 8px;
+      border-radius: 6px;
+      background: rgba(148, 163, 184, 0.12);
+      cursor: pointer;
+    }
+    .copy-chip:hover { color: var(--accent); }
+
+    /* Section */
+    section { padding: 34px 0; }
+    .sec-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .sec-title {
+      font-size: 22px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .sec-title::before {
+      content: "";
+      width: 4px;
+      height: 20px;
+      border-radius: 4px;
+      background: linear-gradient(180deg, var(--accent), var(--accent-2));
+    }
+    .sec-desc { font-size: 13.5px; color: var(--text-dim); }
+
+    /* Architecture Flow */
+    .arch-grid {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 16px;
+      align-items: center;
+    }
+    .arch-box {
+      padding: 18px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: var(--bg-elev);
+    }
+    .arch-tag {
+      font-family: var(--mono);
+      font-size: 11.5px;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .arch-box h3 { font-size: 16px; margin-bottom: 6px; }
+    .arch-box p { font-size: 13.5px; color: var(--text-muted); }
+    .arch-arrow {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      font-family: var(--mono);
+      font-size: 11.5px;
+      color: var(--green);
+      text-align: center;
+      padding: 0 4px;
+    }
+
+    /* Projects */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 22px;
+    }
+    .project-top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .project-title { font-size: 20px; font-weight: 700; }
+    .project-role {
+      font-size: 13px;
+      color: var(--text-muted);
+      background: rgba(148, 163, 184, 0.12);
+      padding: 3px 10px;
+      border-radius: 8px;
+    }
+    .project-intro {
+      color: var(--text-muted);
+      font-size: 14.5px;
+      margin-bottom: 14px;
+    }
+    .stack-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 16px;
+    }
+    .pill {
+      font-family: var(--mono);
+      font-size: 12px;
+      padding: 3px 9px;
+      border-radius: 7px;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      background: rgba(148, 163, 184, 0.06);
+    }
+    .bullets {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .bullet-item {
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: rgba(148, 163, 184, 0.04);
+      font-size: 13.5px;
+      color: var(--text-muted);
+    }
+    .bullet-item strong { color: var(--text); display: block; margin-bottom: 4px; }
+
+    /* Eval Visualization */
+    .eval-panel {
+      border-top: 1px solid var(--border);
+      padding-top: 16px;
+      margin-top: 6px;
+    }
+    .eval-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .eval-tabs { display: flex; gap: 6px; }
+    .tab-btn {
+      font-family: var(--mono);
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+    }
+    .tab-btn.active {
+      background: rgba(56, 189, 248, 0.14);
+      color: var(--accent);
+      border-color: var(--border-strong);
+    }
+    .bars { display: grid; gap: 9px; }
+    .bar-row {
+      display: grid;
+      grid-template-columns: 120px 1fr 64px;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--mono);
+      font-size: 12.5px;
+    }
+    .bar-track {
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(148, 163, 184, 0.14);
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      transition: width 0.35s ease;
+    }
+    .bar-row.best .bar-fill {
+      background: linear-gradient(90deg, var(--green), var(--accent));
+    }
+    .metrics-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .metric-box {
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      text-align: center;
+      background: rgba(148, 163, 184, 0.04);
+    }
+    .metric-num {
+      font-family: var(--mono);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--green);
+    }
+    .metric-lbl { font-size: 12px; color: var(--text-dim); margin-top: 2px; }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    .skill-card h3 {
+      font-size: 15.5px;
+      margin-bottom: 8px;
+      color: var(--accent);
+    }
+    .skill-card p { font-size: 13.8px; color: var(--text-muted); }
+
+    /* Pitch box */
+    .pitch-box {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .pitch-text {
+      font-size: 14px;
+      color: var(--text-muted);
+      background: rgba(148, 163, 184, 0.06);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 16px;
+      white-space: pre-line;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 24px 0 36px;
+      margin-top: 24px;
+      font-size: 13px;
+      color: var(--text-dim);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      padding: 10px 16px;
+      border-radius: 10px;
+      background: var(--green);
+      color: #052e16;
+      font-weight: 700;
+      font-size: 13.5px;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(10px);
+      transition: all 0.2s ease;
+      z-index: 100;
+    }
+    .toast.show { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 820px) {
+      .hero { grid-template-columns: 1fr; padding-top: 32px; }
+      .arch-grid { grid-template-columns: 1fr; }
+      .arch-arrow { transform: rotate(90deg); margin: 4px 0; }
+      .bullets, .skills-grid { grid-template-columns: 1fr; }
+      .metrics-strip { grid-template-columns: repeat(2, 1fr); }
+      .nav-links { display: none; }
+      h1 { font-size: 32px; }
+    }
+  </style>
+</head>
+<body data-theme="dark">
+  <header>
+    <div class="container nav-inner">
+      <a href="#top" class="brand">
+        <span class="brand-dot"></span>
+        <span>陈炜 · Agent &amp; AI Infra</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#architecture">全链路联动</a>
+        <a href="#projects">核心项目</a>
+        <a href="#skills">专业技能</a>
+        <a href="#pitch">投递简介</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="btn" id="themeToggle" type="button">切换浅色</button>
+        <a class="btn btn-primary" href="https://github.com/yzxz111" target="_blank" rel="noopener">GitHub 主页 ↗</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top" class="container">
+    <!-- Hero -->
+    <section class="hero">
+      <div>
+        <div class="badge-row">
+          <span class="badge green">● 随时全职到岗</span>
+          <span class="badge">2023.09 - 2027.06</span>
+          <span class="badge">湖南警察学院 · 信息安全</span>
+        </div>
+        <h1>陈炜</h1>
+        <div class="subtitle">求职意向：Agent 工程师 / AI 开发实习</div>
+        <p class="summary">
+          信息安全专业 2023 级本科在读，独立完成 <strong>LogOps-Agent 智能排障平台</strong>、<strong>一加 AI 中台</strong> 和 <strong>一加灵犀 AI 桌面工作台</strong> 三个项目，具备 Agent 应用编排（Python）、大模型网关（Java）与桌面客户端（Electron / React）的全链路工程实践。熟悉 LangGraph、Agentic 混合检索 RAG、FastMCP、SSE 流式交互与 Redis Lua 并发限流，注重通过链路日志、自动化测试与离线 Eval 评测核验结果。
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="https://github.com/yzxz111" target="_blank" rel="noopener">访问 GitHub (@yzxz111) ↗</a>
+          <a class="btn" href="https://github.com/yzxz111/logops-agent" target="_blank" rel="noopener">LogOps-Agent 仓库 ↗</a>
+          <a class="btn" href="https://github.com/yzxz111/yijia-ai-platform" target="_blank" rel="noopener">一加 AI 中台仓库 ↗</a>
+          <a class="btn" href="https://github.com/yzxz111/yijia-lingxi" target="_blank" rel="noopener">一加灵犀仓库 ↗</a>
+          <button class="btn" type="button" onclick="copyText('18173597131', '已复制手机号')">复制手机号</button>
+        </div>
+      </div>
+
+      <aside class="card info-card">
+        <div>
+          <div style="font-weight:700;font-size:15.5px;margin-bottom:10px;">基本信息 &amp; 联系名片</div>
+          <div class="info-row">
+            <span class="info-label">院校专业</span>
+            <span class="info-val">湖南警察学院 · 信息安全</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">年级学制</span>
+            <span class="info-val">2023 级（2023.09 - 2027.06）</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">到岗时间</span>
+            <span class="info-val" style="color:var(--green);">随时可全职实习</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">联系电话</span>
+            <span class="info-val copy-chip" onclick="copyText('18173597131', '已复制手机号')">18173597131</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">电子邮箱</span>
+            <span class="info-val copy-chip" onclick="copyText('2166136579@qq.com', '已复制邮箱')">2166136579@qq.com</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">GitHub</span>
+            <span class="info-val"><a href="https://github.com/yzxz111" target="_blank" rel="noopener" style="color:var(--accent);">github.com/yzxz111 ↗</a></span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Architecture -->
+    <section id="architecture">
+      <div class="sec-head">
+        <h2 class="sec-title">三个独立开发项目的联动架构</h2>
+        <span class="sec-desc">Agent 应用与桌面客户端 × 统一模型网关</span>
+      </div>
+      <div class="arch-grid">
+        <div class="arch-box">
+          <div class="arch-tag">LAYER 01 · AGENT / DESKTOP</div>
+          <h3>LogOps-Agent 与一加灵犀</h3>
+          <p>LogOps-Agent：LangGraph 状态机、Agentic Hybrid RAG 与 FastMCP 只读取证工具。一加灵犀：Electron / React 桌面交互、SSE 流式聊天与本地历史管理；支持独立运行与自研中台 OpenAI 兼容契约对接。</p>
+        </div>
+        <div class="arch-arrow">
+          <span>SSE 流式调用</span>
+          <span>⇄ X-Request-ID ⇄</span>
+          <span>429 有限退避</span>
+        </div>
+        <div class="arch-box">
+          <div class="arch-tag">LAYER 02 · JAVA 21 / INFRA</div>
+          <h3>一加 AI 中台</h3>
+          <p>OpenAPI 3.1 契约 · WebFlux SSE UTF-8 跨块与心跳帧处理 · Redis Lua 共享并发集合 TTL 修复 · 294 项网关回归 + 25 项协议测试。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <div class="sec-head">
+        <h2 class="sec-title">核心项目经历</h2>
+        <span class="sec-desc">所有指标均来自仓库代码与实测报告</span>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <article class="card">
+          <div class="project-top">
+            <div>
+              <div class="project-title">LogOps-Agent 智能排障平台</div>
+              <a href="https://github.com/yzxz111/logops-agent" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:13px;color:var(--accent);">
+                github.com/yzxz111/logops-agent ↗
+              </a>
+            </div>
+            <span class="project-role">个人独立开发 · Python / Agent</span>
+          </div>
+          <p class="project-intro">
+            面向微服务与网关异常排查场景，构建融合 LangGraph 状态机、Agentic RAG 与只读 MCP 工具的自动诊断平台，直连自研模型网关实现流式推理与链路追踪。
+          </p>
+          <div class="stack-list">
+            <span class="pill">Python 3.11</span>
+            <span class="pill">FastAPI (SSE)</span>
+            <span class="pill">LangGraph</span>
+            <span class="pill">Qdrant</span>
+            <span class="pill">BM25</span>
+            <span class="pill">FastMCP</span>
+            <span class="pill">Pydantic</span>
+            <span class="pill">pytest</span>
+          </div>
+          <ul class="bullets">
+            <li class="bullet-item">
+              <strong>状态机编排</strong>
+              基于 LangGraph 设计异常提取、多路取证、相关性评估与二次检索循环流程；内置最大步数/Token 预算熔断与高危操作人工确认（中断恢复）。
+            </li>
+            <li class="bullet-item">
+              <strong>Agentic RAG</strong>
+              对 25 篇故障手册按章节分块（125 块），结合 BM25 与 Qdrant RRF 混合检索、Query 改写与多样性重排，并强制输出 Citation 引用溯源。
+            </li>
+            <li class="bullet-item">
+              <strong>工具与上下文</strong>
+              基于 FastMCP 封装只读日志切片与源码定位工具（防路径穿越与 Pydantic 校验）；实现堆栈脱敏、错误窗口提取及 Tool Result 摘要压缩。
+            </li>
+            <li class="bullet-item">
+              <strong>离线评测与单测</strong>
+              构建 30 条离线故障评测集，Agentic 模式 Recall@3 达 100.00%、MRR 0.9833，工具与根因命中率 100%，17 项 pytest 全部通过。
+            </li>
+          </ul>
+
+          <div class="eval-panel">
+            <div class="eval-header">
+              <strong style="font-size:14px;">30 条故障评测集（125 分块）RAG 模式对比实测</strong>
+              <div class="eval-tabs">
+                <button class="tab-btn active" type="button" onclick="switchMetric('recall3', this)">Recall@3</button>
+                <button class="tab-btn" type="button" onclick="switchMetric('mrr', this)">MRR</button>
+                <button class="tab-btn" type="button" onclick="switchMetric('recall1', this)">Recall@1</button>
+              </div>
+            </div>
+            <div class="bars" id="evalBars"></div>
+            <div class="metrics-strip">
+              <div class="metric-box">
+                <div class="metric-num">100%</div>
+                <div class="metric-lbl">MCP 工具准确率</div>
+              </div>
+              <div class="metric-box">
+                <div class="metric-num">100%</div>
+                <div class="metric-lbl">根因定位命中率</div>
+              </div>
+              <div class="metric-box">
+                <div class="metric-num">21.93%</div>
+                <div class="metric-lbl">上下文压缩率</div>
+              </div>
+              <div class="metric-box">
+                <div class="metric-num">17 / 17</div>
+                <div class="metric-lbl">pytest 通过用例</div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="card">
+          <div class="project-top">
+            <div>
+              <div class="project-title">一加 AI 中台 · AI 模型接入与网关平台</div>
+              <a href="https://github.com/yzxz111/yijia-ai-platform" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:13px;color:var(--accent);">
+                github.com/yzxz111/yijia-ai-platform ↗
+              </a>
+            </div>
+            <span class="project-role">个人独立开发 · Java / Infra</span>
+          </div>
+          <p class="project-intro">
+            面向大模型调用，独立设计并实现 API 管理与模型网关平台，完成下游应用接入、流式协议处理、并发限流、控制台功能开发与联调，为 Agent 和桌面客户端提供统一模型调用底座。
+          </p>
+          <div class="stack-list">
+            <span class="pill">Java 21</span>
+            <span class="pill">Spring Boot WebFlux</span>
+            <span class="pill">PostgreSQL</span>
+            <span class="pill">Redis Lua</span>
+            <span class="pill">OpenAPI 3.1</span>
+            <span class="pill">Node.js</span>
+            <span class="pill">Vue 3</span>
+          </div>
+          <ul class="bullets">
+            <li class="bullet-item">
+              <strong>模型接入</strong>
+              补充 OpenAPI 3.1 接口契约及 Node.js 客户端，串联账号登录、托管 API Key、模型列表、实时额度和流式对话。
+            </li>
+            <li class="bullet-item">
+              <strong>流式处理</strong>
+              处理 UTF-8 跨块、SSE 心跳、usage 帧与结束标记，识别截断和流中错误；仅对明确的准入 429 有限退避，避免重复生成与计费。
+            </li>
+            <li class="bullet-item">
+              <strong>限流修复</strong>
+              修复 Redis Lua 脚本中短租约缩短共享并发集合 TTL 的问题，补齐 Retry-After、结构化错误和请求 ID，便于调用端退避与排障。
+            </li>
+            <li class="bullet-item">
+              <strong>功能与验证</strong>
+              恢复用户 API Key 自助管理及控制台入口；使用本地模拟模型上游联调，完成 294 项网关专项回归与 25 项客户端协议测试。
+            </li>
+          </ul>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="card">
+          <div class="project-top">
+            <div>
+              <div class="project-title">一加灵犀 AI 桌面工作台</div>
+              <a href="https://github.com/yzxz111/yijia-lingxi" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:13px;color:var(--accent);">
+                github.com/yzxz111/yijia-lingxi ↗
+              </a>
+            </div>
+            <span class="project-role">个人独立开发 · Electron / React</span>
+          </div>
+          <p class="project-intro">
+            面向写作、编程与学习场景，独立设计并实现一加 AI 中台的桌面客户端，通过 OpenAI 兼容接口获取模型目录、实时额度和流式聊天响应，完成桌面交互、上下文管理与本地数据管理。
+          </p>
+          <div class="stack-list">
+            <span class="pill">Electron</span>
+            <span class="pill">React</span>
+            <span class="pill">Vite</span>
+            <span class="pill">JavaScript</span>
+            <span class="pill">SSE</span>
+            <span class="pill">AbortController</span>
+            <span class="pill">DOMPurify</span>
+            <span class="pill">Playwright</span>
+          </div>
+          <ul class="bullets">
+            <li class="bullet-item">
+              <strong>桌面交互</strong>
+              实现多轮流式聊天、六类场景助手、本地历史与全文搜索、回复收藏、文本附件及 Markdown 导出。
+            </li>
+            <li class="bullet-item">
+              <strong>流式可靠性</strong>
+              封装 UTF-8 增量解码与 SSE 帧解析，处理心跳、usage、结束标记、流中错误与断流；取消生成会中止实际请求，生成请求不自动重试以避免重复计费。
+            </li>
+            <li class="bullet-item">
+              <strong>桌面安全</strong>
+              通过受限 preload / IPC 完成网络适配，启用上下文隔离与沙箱、禁用渲染进程 Node.js；API Key 仅在内存中使用，Markdown 经 DOMPurify 净化后展示。
+            </li>
+            <li class="bullet-item">
+              <strong>打包与本地验证</strong>
+              完成 Windows x64 免安装打包与启动验证；本地验证记录中 13 项协议测试、15 项受控服务桌面交互测试通过。演示与受控服务模式明确隔离标记，保障验证可信度。
+            </li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <div class="sec-head">
+        <h2 class="sec-title">专业技能矩阵</h2>
+        <span class="sec-desc">严格对齐项目源码中的真实实践</span>
+      </div>
+      <div class="skills-grid">
+        <div class="card skill-card">
+          <h3>Agent 与 RAG</h3>
+          <p>熟悉 LLM Token 计量与结构化输出；掌握 LangGraph 状态机编排、Agentic 混合检索 RAG（BM25+Qdrant+RRF/重排）、MCP 工具封装、上下文压缩及 Eval 评测。</p>
+        </div>
+        <div class="card skill-card">
+          <h3>后端与语言</h3>
+          <p>熟悉 Python（FastAPI/Pydantic）与 Java 21（Spring Boot/WebFlux），具备 PostgreSQL、Redis 协议服务、OpenAPI 3.1 契约及 SSE 流式协议开发实践。</p>
+        </div>
+        <div class="card skill-card">
+          <h3>前端与工程</h3>
+          <p>使用 Vue 3、TypeScript 完成控制台联调；掌握 Git 常用操作，具备 pytest 单元测试、客户端协议测试与网关回归测试实践。</p>
+        </div>
+        <div class="card skill-card">
+          <h3>AI 辅助开发</h3>
+          <p>使用 Claude Code、Codex、DeepSeek 等工具辅助需求拆解、代码实现与问题排查，结合自动化测试、评测集与链路日志核验结果。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pitch -->
+    <section id="pitch">
+      <div class="sec-head">
+        <h2 class="sec-title">快速投递 / 个人简介</h2>
+        <button class="btn" type="button" onclick="copyPitch()">一键复制打招呼话术</button>
+      </div>
+      <div class="card pitch-box">
+        <div class="pitch-text" id="pitchContent">您好！我是湖南警察学院信息安全专业 2023 级本科生陈炜（2027 届，目前可随时全职到岗），想应聘贵司【Agent 工程师 / AI 开发实习】岗位。
+
+以下三个项目均由我个人独立完成，覆盖大模型网关、Agent 应用与桌面客户端：
+1. 智能排障平台（LogOps-Agent，Python/FastAPI）：基于 LangGraph 构建循环状态机与人工确认机制，实现 BM25 + Qdrant RRF 的 Agentic RAG 检索与 Citation 溯源，并封装只读 FastMCP 工具与上下文压缩模块，在 30 条评测集上达成 Recall@3 100%、MRR 0.9833、17 项 pytest 全通过。
+GitHub：<a href="https://github.com/yzxz111/logops-agent" target="_blank" rel="noopener">https://github.com/yzxz111/logops-agent</a>
+2. 一加 AI 中台（AI 模型接入与网关平台，Java 21/WebFlux）：独立完成平台开发与联调，实现 OpenAPI 3.1 契约、SSE UTF-8 跨块流式处理与 429 有限退避，修复 Redis Lua 并发集合 TTL 缺陷，并通过 294 项网关回归与 25 项协议测试。
+GitHub：<a href="https://github.com/yzxz111/yijia-ai-platform" target="_blank" rel="noopener">https://github.com/yzxz111/yijia-ai-platform</a>
+3. 一加灵犀 AI 桌面工作台（Electron/React/Vite）：独立实现多轮流式聊天、场景助手、历史与收藏、文本附件及 Markdown 导出；封装 SSE 解码与请求取消机制，通过受限 IPC 对接网关，并完成 Windows 免安装打包与本地协议、桌面交互验证。
+GitHub：<a href="https://github.com/yzxz111/yijia-lingxi" target="_blank" rel="noopener">https://github.com/yzxz111/yijia-lingxi</a>
+
+GitHub：https://github.com/yzxz111 ｜ 手机：18173597131 ｜ 邮箱：2166136579@qq.com</div>
+      </div>
+    </section>
+
+    <footer>
+      <span>© 2026 陈炜 · Agent 工程师 / AI 开发实习个人主页</span>
+      <span>GitHub：<a href="https://github.com/yzxz111" target="_blank" rel="noopener" style="color:var(--accent);">https://github.com/yzxz111</a></span>
+    </footer>
+  </main>
+
+  <div class="toast" id="toast">已复制到剪贴板</div>
+
+  <script>
+    const EVAL_DATA = {
+      recall3: [
+        { name: 'bm25_only', val: 96.67, label: '96.67%', best: false },
+        { name: 'vector_only', val: 96.67, label: '96.67%', best: false },
+        { name: 'hybrid_rrf', val: 96.67, label: '96.67%', best: false },
+        { name: 'agentic', val: 100.0, label: '100.00%', best: true },
+      ],
+      mrr: [
+        { name: 'bm25_only', val: 95.83, label: '0.9583', best: false },
+        { name: 'vector_only', val: 96.67, label: '0.9667', best: false },
+        { name: 'hybrid_rrf', val: 96.67, label: '0.9667', best: false },
+        { name: 'agentic', val: 98.33, label: '0.9833', best: true },
+      ],
+      recall1: [
+        { name: 'bm25_only', val: 93.33, label: '93.33%', best: false },
+        { name: 'vector_only', val: 96.67, label: '96.67%', best: false },
+        { name: 'hybrid_rrf', val: 96.67, label: '96.67%', best: false },
+        { name: 'agentic', val: 96.67, label: '96.67%', best: true },
+      ],
+    };
+
+    function renderBars(metricKey) {
+      const container = document.getElementById('evalBars');
+      const rows = EVAL_DATA[metricKey] || EVAL_DATA.recall3;
+      container.innerHTML = rows.map(r => `
+        <div class="bar-row ${r.best ? 'best' : ''}">
+          <span>${r.name}</span>
+          <div class="bar-track"><div class="bar-fill" style="width:${r.val}%"></div></div>
+          <span style="text-align:right;font-weight:${r.best ? '700' : '400'};color:${r.best ? 'var(--green)' : 'var(--text-muted)'}">${r.label}</span>
+        </div>
+      `).join('');
+    }
+
+    function switchMetric(key, btn) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderBars(key);
+    }
+
+    function showToast(msg) {
+      const el = document.getElementById('toast');
+      el.textContent = msg;
+      el.classList.add('show');
+      setTimeout(() => el.classList.remove('show'), 1800);
+    }
+
+    function copyText(text, msg) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => showToast(msg));
+      } else {
+        showToast(text);
+      }
+    }
+
+    function copyPitch() {
+      copyText(document.getElementById('pitchContent').innerText, '已复制打招呼话术');
+    }
+
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      const body = document.body;
+      const isDark = body.getAttribute('data-theme') === 'dark';
+      body.setAttribute('data-theme', isDark ? 'light' : 'dark');
+      document.getElementById('themeToggle').textContent = isDark ? '切换深色' : '切换浅色';
+    });
+
+    renderBars('recall3');
+  </script>
+</body>
+</html>
