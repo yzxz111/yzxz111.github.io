@@ -3,50 +3,61 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>陈炜 · Agent 工程师 / AI 开发实习 · 个人主页</title>
+  <title>陈炜 · Agent 工程师 / AI 开发实习 · 交互式技术简历</title>
   <style>
     :root {
-      --bg: #0b1120;
-      --bg-elev: #111a2e;
-      --bg-card: rgba(17, 26, 46, 0.78);
-      --border: rgba(148, 163, 184, 0.16);
-      --border-strong: rgba(56, 189, 248, 0.35);
-      --text: #e2e8f0;
-      --text-muted: #94a3b8;
-      --text-dim: #64748b;
+      --bg: #09090b;
+      --bg-elev: #111114;
+      --bg-panel: #16161b;
+      --bg-code: #0c0c10;
+      --border: rgba(255, 255, 255, 0.09);
+      --border-strong: rgba(56, 189, 248, 0.45);
+      --text: #f4f4f5;
+      --text-muted: #a1a1aa;
+      --text-dim: #71717a;
       --accent: #38bdf8;
-      --accent-2: #818cf8;
-      --green: #34d399;
+      --accent-soft: rgba(56, 189, 248, 0.12);
+      --emerald: #34d399;
+      --emerald-soft: rgba(52, 211, 153, 0.12);
+      --indigo: #818cf8;
       --amber: #fbbf24;
-      --shadow: 0 20px 50px -15px rgba(2, 6, 23, 0.75);
+      --amber-soft: rgba(251, 191, 36, 0.12);
+      --rose: #fb7185;
+      --rose-soft: rgba(251, 113, 133, 0.12);
+      --shadow: 0 20px 50px -20px rgba(0, 0, 0, 0.85);
       --mono: "JetBrains Mono", "Cascadia Code", Consolas, ui-monospace, SFMono-Regular, monospace;
       --sans: "PingFang SC", "Microsoft YaHei", "Segoe UI", system-ui, -apple-system, sans-serif;
     }
 
     [data-theme="light"] {
-      --bg: #f8fafc;
+      --bg: #fafafa;
       --bg-elev: #ffffff;
-      --bg-card: rgba(255, 255, 255, 0.92);
-      --border: rgba(15, 23, 42, 0.1);
-      --border-strong: rgba(30, 56, 107, 0.3);
-      --text: #0f172a;
-      --text-muted: #475569;
-      --text-dim: #64748b;
-      --accent: #1e386b;
-      --accent-2: #2563eb;
-      --green: #059669;
+      --bg-panel: #f4f4f5;
+      --bg-code: #f8fafc;
+      --border: rgba(24, 24, 27, 0.1);
+      --border-strong: rgba(2, 132, 199, 0.4);
+      --text: #18181b;
+      --text-muted: #52525b;
+      --text-dim: #71717a;
+      --accent: #0284c7;
+      --accent-soft: rgba(2, 132, 199, 0.1);
+      --emerald: #059669;
+      --emerald-soft: rgba(5, 150, 105, 0.1);
+      --indigo: #4f46e5;
       --amber: #d97706;
-      --shadow: 0 18px 40px -18px rgba(15, 23, 42, 0.15);
+      --amber-soft: rgba(217, 119, 6, 0.1);
+      --rose: #e11d48;
+      --rose-soft: rgba(225, 29, 72, 0.1);
+      --shadow: 0 14px 36px -18px rgba(24, 24, 27, 0.14);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
       font-family: var(--sans);
-      background:
-        radial-gradient(900px 500px at 10% -5%, rgba(56, 189, 248, 0.12), transparent 60%),
-        radial-gradient(800px 480px at 90% 5%, rgba(129, 140, 248, 0.12), transparent 60%),
-        var(--bg);
+      background-color: var(--bg);
+      background-image: radial-gradient(rgba(161, 161, 170, 0.13) 1px, transparent 1px);
+      background-size: 24px 24px;
       color: var(--text);
       line-height: 1.65;
       min-height: 100vh;
@@ -55,238 +66,376 @@
     a { color: inherit; text-decoration: none; }
 
     .container {
-      max-width: 1080px;
+      max-width: 1100px;
       margin: 0 auto;
       padding: 0 22px;
     }
 
-    /* Header Nav */
+    /* Header */
     header {
       position: sticky;
       top: 0;
-      z-index: 50;
+      z-index: 60;
       backdrop-filter: blur(14px);
-      background: rgba(11, 17, 32, 0.72);
+      background: rgba(9, 9, 11, 0.8);
       border-bottom: 1px solid var(--border);
     }
     [data-theme="light"] header {
-      background: rgba(248, 250, 252, 0.85);
+      background: rgba(250, 250, 250, 0.88);
     }
     .nav-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 64px;
+      height: 60px;
       gap: 16px;
     }
     .brand {
       display: flex;
       align-items: center;
       gap: 10px;
+      font-family: var(--mono);
+      font-size: 13.5px;
       font-weight: 700;
-      letter-spacing: 0.2px;
     }
     .brand-dot {
-      width: 10px;
-      height: 10px;
+      width: 8px;
+      height: 8px;
       border-radius: 50%;
-      background: var(--green);
-      box-shadow: 0 0 12px var(--green);
+      background: var(--emerald);
+      box-shadow: 0 0 10px var(--emerald);
     }
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 20px;
-      font-size: 14px;
+      gap: 22px;
+      font-size: 13.5px;
       color: var(--text-muted);
     }
-    .nav-links a:hover { color: var(--accent); }
+    .nav-links a:hover { color: var(--text); }
     .nav-actions {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
-      gap: 7px;
-      padding: 8px 14px;
-      border-radius: 10px;
-      font-size: 13.5px;
+      gap: 6px;
+      padding: 7px 13px;
+      border-radius: 8px;
+      font-size: 13px;
       font-weight: 600;
       border: 1px solid var(--border);
       background: var(--bg-elev);
       color: var(--text);
       cursor: pointer;
-      transition: transform 0.15s ease, border-color 0.2s ease, background 0.2s ease;
+      white-space: nowrap;
+      transition: border-color 0.15s ease, transform 0.12s ease, background 0.15s ease;
     }
     .btn:hover {
-      transform: translateY(-1px);
       border-color: var(--border-strong);
+      transform: translateY(-1px);
     }
     .btn-primary {
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #ffffff;
-      border: none;
+      background: var(--text);
+      color: var(--bg);
+      border-color: transparent;
     }
-    [data-theme="dark"] .btn-primary { color: #071324; }
+    .btn-accent {
+      background: var(--accent-soft);
+      color: var(--accent);
+      border-color: var(--border-strong);
+    }
 
     /* Hero */
     .hero {
-      padding: 56px 0 36px;
+      padding: 46px 0 28px;
       display: grid;
-      grid-template-columns: 1.45fr 1fr;
-      gap: 28px;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 24px;
       align-items: stretch;
     }
-    .badge-row {
+    .tag-strip {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 4px 11px;
-      border-radius: 999px;
-      font-size: 12.5px;
+    .tag {
+      font-family: var(--mono);
+      font-size: 11.5px;
       font-weight: 600;
-      background: rgba(56, 189, 248, 0.1);
-      color: var(--accent);
-      border: 1px solid rgba(56, 189, 248, 0.24);
+      padding: 3px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--bg-elev);
+      color: var(--text-muted);
     }
-    .badge.green {
-      background: rgba(52, 211, 153, 0.1);
-      color: var(--green);
-      border-color: rgba(52, 211, 153, 0.26);
+    .tag.live {
+      color: var(--emerald);
+      background: var(--emerald-soft);
+      border-color: rgba(52, 211, 153, 0.3);
     }
     h1 {
-      font-size: 40px;
-      line-height: 1.18;
-      letter-spacing: -0.5px;
-      margin-bottom: 10px;
+      font-size: 38px;
+      line-height: 1.15;
+      letter-spacing: -0.6px;
+      margin-bottom: 8px;
     }
     .subtitle {
-      font-size: 18px;
+      font-size: 16.5px;
       font-weight: 600;
       color: var(--accent);
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
     .summary {
+      font-size: 14.8px;
       color: var(--text-muted);
-      font-size: 15.5px;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
+    .summary strong { color: var(--text); font-weight: 600; }
     .hero-cta {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 8px;
     }
 
-    /* Profile Card */
     .card {
-      background: var(--bg-card);
+      background: var(--bg-elev);
       border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 22px;
+      border-radius: 14px;
+      padding: 20px;
       box-shadow: var(--shadow);
-      backdrop-filter: blur(10px);
     }
-    .info-card {
+    .terminal-card {
+      background: var(--bg-code);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      gap: 14px;
+      gap: 12px;
     }
-    .info-row {
+    .terminal-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--text-dim);
+    }
+    .dots { display: flex; gap: 6px; }
+    .dots i { width: 9px; height: 9px; border-radius: 50%; display: block; }
+    .dots i:nth-child(1) { background: #ef4444; }
+    .dots i:nth-child(2) { background: #f59e0b; }
+    .dots i:nth-child(3) { background: #10b981; }
+    .kv-list { display: grid; gap: 8px; }
+    .kv-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 12px;
-      padding: 9px 0;
+      gap: 10px;
+      font-size: 13px;
+      padding: 6px 0;
       border-bottom: 1px dashed var(--border);
-      font-size: 14px;
     }
-    .info-row:last-child { border-bottom: none; }
-    .info-label { color: var(--text-dim); font-size: 13px; }
-    .info-val { font-weight: 600; text-align: right; word-break: break-all; }
+    .kv-row:last-child { border-bottom: none; }
+    .kv-k { color: var(--text-dim); font-family: var(--mono); font-size: 12px; }
+    .kv-v { font-weight: 600; text-align: right; }
     .copy-chip {
       font-family: var(--mono);
-      font-size: 13px;
+      font-size: 12.5px;
       padding: 2px 8px;
       border-radius: 6px;
-      background: rgba(148, 163, 184, 0.12);
+      background: var(--bg-panel);
+      border: 1px solid var(--border);
       cursor: pointer;
     }
-    .copy-chip:hover { color: var(--accent); }
+    .copy-chip:hover { color: var(--accent); border-color: var(--border-strong); }
 
-    /* Section */
-    section { padding: 34px 0; }
+    /* Sections */
+    section { padding: 30px 0; }
     .sec-head {
       display: flex;
+      flex-wrap: wrap;
       align-items: baseline;
       justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 18px;
+      gap: 10px;
+      margin-bottom: 16px;
     }
     .sec-title {
-      font-size: 22px;
+      font-size: 20px;
       font-weight: 700;
       display: flex;
       align-items: center;
       gap: 10px;
     }
-    .sec-title::before {
-      content: "";
-      width: 4px;
-      height: 20px;
-      border-radius: 4px;
-      background: linear-gradient(180deg, var(--accent), var(--accent-2));
+    .sec-num {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 2px 7px;
+      border-radius: 6px;
     }
-    .sec-desc { font-size: 13.5px; color: var(--text-dim); }
+    .sec-desc { font-size: 13px; color: var(--text-dim); }
 
-    /* Architecture Flow */
-    .arch-grid {
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
-      gap: 16px;
+    /* Simulator */
+    .sim-shell { padding: 0; overflow: hidden; }
+    .sim-toolbar {
+      display: flex;
+      flex-wrap: wrap;
       align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 14px 18px;
+      background: var(--bg-panel);
+      border-bottom: 1px solid var(--border);
     }
-    .arch-box {
-      padding: 18px;
-      border-radius: 14px;
+    .sim-scenarios {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .sim-btn {
+      font-family: var(--mono);
+      font-size: 12px;
+      padding: 6px 11px;
+      border-radius: 8px;
       border: 1px solid var(--border);
       background: var(--bg-elev);
+      color: var(--text-muted);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.15s ease;
     }
-    .arch-tag {
-      font-family: var(--mono);
-      font-size: 11.5px;
+    .sim-btn:hover { border-color: var(--border-strong); color: var(--text); }
+    .sim-btn.active {
+      background: var(--accent-soft);
       color: var(--accent);
-      margin-bottom: 6px;
+      border-color: var(--border-strong);
+      font-weight: 700;
     }
-    .arch-box h3 { font-size: 16px; margin-bottom: 6px; }
-    .arch-box p { font-size: 13.5px; color: var(--text-muted); }
-    .arch-arrow {
-      display: flex;
-      flex-direction: column;
+    .sim-body {
+      padding: 18px;
+      display: grid;
+      gap: 16px;
+    }
+    .arch-nodes {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr auto 1fr;
+      gap: 10px;
       align-items: center;
-      gap: 4px;
+    }
+    .arch-node {
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--bg-code);
+      transition: all 0.2s ease;
+    }
+    .arch-node.lit {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px var(--accent), 0 8px 24px -12px rgba(56, 189, 248, 0.45);
+    }
+    .arch-node.lit-warn {
+      border-color: var(--amber);
+      box-shadow: 0 0 0 1px var(--amber);
+    }
+    .arch-node.lit-err {
+      border-color: var(--rose);
+      box-shadow: 0 0 0 1px var(--rose);
+    }
+    .arch-node.lit-ok {
+      border-color: var(--emerald);
+      box-shadow: 0 0 0 1px var(--emerald);
+    }
+    .node-tag {
       font-family: var(--mono);
-      font-size: 11.5px;
-      color: var(--green);
+      font-size: 10.5px;
+      color: var(--text-dim);
+      margin-bottom: 3px;
+    }
+    .node-name { font-size: 14px; font-weight: 700; margin-bottom: 2px; }
+    .node-sub { font-size: 12px; color: var(--text-muted); font-family: var(--mono); }
+    .arch-pipe {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text-dim);
       text-align: center;
-      padding: 0 4px;
     }
 
-    /* Projects */
-    .projects-grid {
+    .trace-console {
+      background: var(--bg-code);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px;
+      font-family: var(--mono);
+      font-size: 12.2px;
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 22px;
+      gap: 7px;
+      max-height: 290px;
+      overflow-y: auto;
     }
+    .trace-line {
+      display: grid;
+      grid-template-columns: 74px 136px 1fr;
+      gap: 10px;
+      align-items: start;
+      padding: 4px 6px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.015);
+    }
+    .trace-step { color: var(--text-dim); }
+    .trace-mod { font-weight: 700; color: var(--accent); }
+    .trace-mod.ok { color: var(--emerald); }
+    .trace-mod.warn { color: var(--amber); }
+    .trace-mod.err { color: var(--rose); }
+    .trace-msg { color: var(--text-muted); word-break: break-word; }
+    .trace-msg code { color: var(--text); background: var(--bg-panel); padding: 1px 5px; border-radius: 4px; }
+
+    .hitl-bar {
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(251, 191, 36, 0.45);
+      background: var(--amber-soft);
+      font-size: 13px;
+    }
+    .hitl-bar.show { display: flex; }
+
+    /* Projects */
+    .project-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .p-tab {
+      font-family: var(--mono);
+      font-size: 12.5px;
+      padding: 7px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--bg-elev);
+      color: var(--text-muted);
+      cursor: pointer;
+    }
+    .p-tab.active {
+      background: var(--text);
+      color: var(--bg);
+      border-color: transparent;
+      font-weight: 700;
+    }
+
+    .projects-grid { display: grid; gap: 20px; }
+    .project-card.hidden { display: none; }
     .project-top {
       display: flex;
       flex-wrap: wrap;
@@ -295,160 +444,190 @@
       gap: 12px;
       margin-bottom: 10px;
     }
-    .project-title { font-size: 20px; font-weight: 700; }
+    .project-title { font-size: 19px; font-weight: 700; }
+    .project-link {
+      font-family: var(--mono);
+      font-size: 12.5px;
+      color: var(--accent);
+    }
     .project-role {
-      font-size: 13px;
+      font-family: var(--mono);
+      font-size: 12px;
       color: var(--text-muted);
-      background: rgba(148, 163, 184, 0.12);
-      padding: 3px 10px;
-      border-radius: 8px;
+      background: var(--bg-panel);
+      border: 1px solid var(--border);
+      padding: 3px 9px;
+      border-radius: 6px;
     }
-    .project-intro {
-      color: var(--text-muted);
-      font-size: 14.5px;
-      margin-bottom: 14px;
-    }
+    .project-intro { font-size: 14px; color: var(--text-muted); margin-bottom: 12px; }
     .stack-list {
       display: flex;
       flex-wrap: wrap;
-      gap: 7px;
-      margin-bottom: 16px;
+      gap: 6px;
+      margin-bottom: 14px;
     }
     .pill {
       font-family: var(--mono);
-      font-size: 12px;
-      padding: 3px 9px;
-      border-radius: 7px;
+      font-size: 11.5px;
+      padding: 2px 8px;
+      border-radius: 6px;
       border: 1px solid var(--border);
+      background: var(--bg-code);
       color: var(--text-muted);
-      background: rgba(148, 163, 184, 0.06);
     }
     .bullets {
       list-style: none;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-bottom: 18px;
+      gap: 10px;
+      margin-bottom: 16px;
     }
     .bullet-item {
-      padding: 12px 14px;
-      border-radius: 12px;
+      padding: 11px 13px;
+      border-radius: 10px;
       border: 1px solid var(--border);
-      background: rgba(148, 163, 184, 0.04);
-      font-size: 13.5px;
+      background: var(--bg-code);
+      font-size: 13.2px;
       color: var(--text-muted);
     }
-    .bullet-item strong { color: var(--text); display: block; margin-bottom: 4px; }
+    .bullet-item strong { color: var(--text); display: block; margin-bottom: 3px; font-size: 13.5px; }
+    .bullet-item code, .lua-note code, .sec-detail code { font-family: var(--mono); font-size: 11.8px; padding: 1px 5px; border-radius: 4px; background: var(--bg-panel); color: var(--text); border: 1px solid var(--border); }
 
-    /* Eval Visualization */
-    .eval-panel {
+    /* Interactive Micro-Labs */
+    .lab-box {
       border-top: 1px solid var(--border);
-      padding-top: 16px;
-      margin-top: 6px;
+      padding-top: 14px;
+      margin-top: 4px;
     }
-    .eval-header {
+    .lab-head {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
-      gap: 10px;
-      margin-bottom: 12px;
+      gap: 8px;
+      margin-bottom: 10px;
     }
-    .eval-tabs { display: flex; gap: 6px; }
+    .lab-title { font-size: 13.5px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+    .toggle-group { display: flex; gap: 6px; flex-wrap: wrap; }
     .tab-btn {
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: 11.5px;
       padding: 4px 10px;
-      border-radius: 8px;
+      border-radius: 6px;
       border: 1px solid var(--border);
-      background: transparent;
+      background: var(--bg-code);
       color: var(--text-muted);
       cursor: pointer;
     }
     .tab-btn.active {
-      background: rgba(56, 189, 248, 0.14);
+      background: var(--accent-soft);
       color: var(--accent);
       border-color: var(--border-strong);
+      font-weight: 700;
     }
-    .bars { display: grid; gap: 9px; }
+
+    /* Lua TTL Visualizer */
+    .lua-bars { display: grid; gap: 10px; background: var(--bg-code); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; }
+    .lua-row { display: grid; grid-template-columns: 150px 1fr 90px; align-items: center; gap: 10px; font-family: var(--mono); font-size: 12px; }
+    .lua-track { height: 10px; border-radius: 999px; background: rgba(161, 161, 170, 0.14); overflow: hidden; }
+    .lua-fill { height: 100%; border-radius: 999px; transition: width 0.35s ease, background 0.25s ease; }
+    .lua-note { font-size: 12.5px; color: var(--text-muted); margin-top: 8px; }
+
+    /* Dual Lab for LogOps */
+    .dual-lab {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .sub-panel {
+      background: var(--bg-code);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 14px;
+    }
+    .bars { display: grid; gap: 8px; margin-top: 8px; }
     .bar-row {
       display: grid;
-      grid-template-columns: 120px 1fr 64px;
+      grid-template-columns: 96px 1fr 56px;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       font-family: var(--mono);
-      font-size: 12.5px;
+      font-size: 11.8px;
     }
-    .bar-track {
-      height: 10px;
-      border-radius: 999px;
-      background: rgba(148, 163, 184, 0.14);
-      overflow: hidden;
-    }
-    .bar-fill {
-      height: 100%;
-      border-radius: 999px;
-      background: linear-gradient(90deg, var(--accent), var(--accent-2));
-      transition: width 0.35s ease;
-    }
-    .bar-row.best .bar-fill {
-      background: linear-gradient(90deg, var(--green), var(--accent));
-    }
+    .bar-track { height: 8px; border-radius: 999px; background: rgba(161, 161, 170, 0.16); overflow: hidden; }
+    .bar-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--accent), var(--indigo)); transition: width 0.35s ease; }
+    .bar-row.best .bar-fill { background: linear-gradient(90deg, var(--emerald), var(--accent)); }
     .metrics-strip {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
-      margin-top: 14px;
+      gap: 8px;
+      margin-top: 12px;
     }
     .metric-box {
-      padding: 10px 12px;
-      border-radius: 10px;
+      padding: 8px 6px;
+      border-radius: 8px;
       border: 1px solid var(--border);
       text-align: center;
-      background: rgba(148, 163, 184, 0.04);
+      background: var(--bg-elev);
     }
-    .metric-num {
+    .metric-num { font-family: var(--mono); font-size: 15px; font-weight: 700; color: var(--emerald); }
+    .metric-lbl { font-size: 11px; color: var(--text-dim); }
+
+    .code-diff {
       font-family: var(--mono);
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--green);
-    }
-    .metric-lbl { font-size: 12px; color: var(--text-dim); margin-top: 2px; }
-
-    /* Skills */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-    }
-    .skill-card h3 {
-      font-size: 15.5px;
-      margin-bottom: 8px;
-      color: var(--accent);
-    }
-    .skill-card p { font-size: 13.8px; color: var(--text-muted); }
-
-    /* Pitch box */
-    .pitch-box {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    .pitch-text {
-      font-size: 14px;
+      font-size: 11.5px;
+      line-height: 1.55;
+      white-space: pre-wrap;
+      word-break: break-all;
       color: var(--text-muted);
-      background: rgba(148, 163, 184, 0.06);
+      margin-top: 8px;
+    }
+    .hl-red { color: var(--rose); background: var(--rose-soft); padding: 0 3px; border-radius: 3px; }
+    .hl-ok { color: var(--emerald); background: var(--emerald-soft); padding: 0 3px; border-radius: 3px; }
+
+    /* Lingxi Security Chips */
+    .sec-chips { display: flex; flex-wrap: wrap; gap: 7px; }
+    .sec-chip {
+      font-family: var(--mono);
+      font-size: 11.5px;
+      padding: 5px 10px;
+      border-radius: 7px;
       border: 1px solid var(--border);
-      border-radius: 12px;
+      background: var(--bg-code);
+      color: var(--text-muted);
+      cursor: pointer;
+    }
+    .sec-chip.active { border-color: var(--emerald); color: var(--emerald); background: var(--emerald-soft); font-weight: 700; }
+    .sec-detail {
+      margin-top: 10px;
+      padding: 10px 12px;
+      border-radius: 8px;
+      background: var(--bg-code);
+      border: 1px solid var(--border);
+      font-size: 12.8px;
+      color: var(--text-muted);
+    }
+
+    /* Skills & Pitch */
+    .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .skill-card h3 { font-size: 14.5px; margin-bottom: 6px; color: var(--accent); font-family: var(--mono); }
+    .skill-card p { font-size: 13.5px; color: var(--text-muted); }
+
+    .pitch-text {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      background: var(--bg-code);
+      border: 1px solid var(--border);
+      border-radius: 10px;
       padding: 14px 16px;
       white-space: pre-line;
     }
 
     footer {
       border-top: 1px solid var(--border);
-      padding: 24px 0 36px;
-      margin-top: 24px;
-      font-size: 13px;
+      padding: 22px 0 34px;
+      margin-top: 20px;
+      font-size: 12.5px;
       color: var(--text-dim);
       display: flex;
       flex-wrap: wrap;
@@ -458,30 +637,33 @@
 
     .toast {
       position: fixed;
-      bottom: 24px;
-      right: 24px;
-      padding: 10px 16px;
-      border-radius: 10px;
-      background: var(--green);
-      color: #052e16;
+      bottom: 22px;
+      right: 22px;
+      padding: 9px 15px;
+      border-radius: 8px;
+      background: var(--emerald);
+      color: #042f2e;
       font-weight: 700;
-      font-size: 13.5px;
+      font-size: 13px;
       opacity: 0;
       pointer-events: none;
-      transform: translateY(10px);
-      transition: all 0.2s ease;
+      transform: translateY(8px);
+      transition: all 0.18s ease;
       z-index: 100;
     }
     .toast.show { opacity: 1; transform: translateY(0); }
 
-    @media (max-width: 820px) {
-      .hero { grid-template-columns: 1fr; padding-top: 32px; }
-      .arch-grid { grid-template-columns: 1fr; }
-      .arch-arrow { transform: rotate(90deg); margin: 4px 0; }
-      .bullets, .skills-grid { grid-template-columns: 1fr; }
+    @media (max-width: 860px) {
+      .nav-actions .btn { padding: 5px 10px; font-size: 12px; }
+      .hero, .dual-lab, .bullets, .skills-grid { grid-template-columns: 1fr; }
+      .arch-nodes { grid-template-columns: 1fr; }
+      .arch-pipe { transform: rotate(90deg); }
+      .trace-line { grid-template-columns: 58px 1fr; }
+      .trace-mod { grid-column: 2; }
+      .lua-row { grid-template-columns: 110px 1fr 70px; }
       .metrics-strip { grid-template-columns: repeat(2, 1fr); }
       .nav-links { display: none; }
-      h1 { font-size: 32px; }
+      h1 { font-size: 30px; }
     }
   </style>
 </head>
@@ -490,17 +672,17 @@
     <div class="container nav-inner">
       <a href="#top" class="brand">
         <span class="brand-dot"></span>
-        <span>陈炜 · Agent &amp; AI Infra</span>
+        <span>chenwei@yzxz111:~$</span>
       </a>
       <nav class="nav-links">
-        <a href="#architecture">全链路联动</a>
+        <a href="#simulator">链路演练台</a>
         <a href="#projects">核心项目</a>
-        <a href="#skills">专业技能</a>
-        <a href="#pitch">投递简介</a>
+        <a href="#skills">技术矩阵</a>
+        <a href="#pitch">快速投递</a>
       </nav>
       <div class="nav-actions">
         <button class="btn" id="themeToggle" type="button">切换浅色</button>
-        <a class="btn btn-primary" href="https://github.com/yzxz111" target="_blank" rel="noopener">GitHub 主页 ↗</a>
+        <a class="btn btn-primary" href="https://github.com/yzxz111" target="_blank" rel="noopener">GitHub ↗</a>
       </div>
     </div>
   </header>
@@ -509,77 +691,106 @@
     <!-- Hero -->
     <section class="hero">
       <div>
-        <div class="badge-row">
-          <span class="badge green">● 随时全职到岗</span>
-          <span class="badge">2023.09 - 2027.06</span>
-          <span class="badge">湖南警察学院 · 信息安全</span>
+        <div class="tag-strip">
+          <span class="tag live">● 随时全职到岗</span>
+          <span class="tag">湖南警察学院 · 信息安全</span>
+          <span class="tag">2027 届本科</span>
         </div>
-        <h1>陈炜</h1>
-        <div class="subtitle">求职意向：Agent 工程师 / AI 开发实习</div>
+        <h1>陈炜 · Chen Wei</h1>
+        <div class="subtitle">Agent 工程师 / AI 开发实习 · 网关底座 × 智能排障 × 安全桌面端</div>
         <p class="summary">
-          信息安全专业 2023 级本科在读，独立完成 <strong>LogOps-Agent 智能排障平台</strong>、<strong>一加 AI 中台</strong> 和 <strong>一加灵犀 AI 桌面工作台</strong> 三个项目，具备 Agent 应用编排（Python）、大模型网关（Java）与桌面客户端（Electron / React）的全链路工程实践。熟悉 LangGraph、Agentic 混合检索 RAG、FastMCP、SSE 流式交互与 Redis Lua 并发限流，注重通过链路日志、自动化测试与离线 Eval 评测核验结果。
+          构建覆盖 <strong>一加 AI 中台（模型网关）</strong> → <strong>LogOps-Agent（智能排障）</strong> → <strong>一加灵犀（桌面工作台）</strong> 的三层联动 AI 工程实践。聚焦 Java / WebFlux 流式网关与 Redis Lua 并发限流、Python / LangGraph 状态机与混合检索 RAG、FastMCP 只读安全封装与 Electron 沙箱隔离。
         </p>
         <div class="hero-cta">
-          <a class="btn btn-primary" href="https://github.com/yzxz111" target="_blank" rel="noopener">访问 GitHub (@yzxz111) ↗</a>
-          <a class="btn" href="https://github.com/yzxz111/logops-agent" target="_blank" rel="noopener">LogOps-Agent 仓库 ↗</a>
-          <a class="btn" href="https://github.com/yzxz111/yijia-ai-platform" target="_blank" rel="noopener">一加 AI 中台仓库 ↗</a>
-          <a class="btn" href="https://github.com/yzxz111/yijia-lingxi" target="_blank" rel="noopener">一加灵犀仓库 ↗</a>
-          <button class="btn" type="button" onclick="copyText('18173597131', '已复制手机号')">复制手机号</button>
+          <a class="btn btn-accent" href="https://github.com/yzxz111/yijia-ai-platform" target="_blank" rel="noopener">01 一加 AI 中台 ↗</a>
+          <a class="btn" href="https://github.com/yzxz111/logops-agent" target="_blank" rel="noopener">02 LogOps-Agent ↗</a>
+          <a class="btn" href="https://github.com/yzxz111/yijia-lingxi" target="_blank" rel="noopener">03 一加灵犀 ↗</a>
+          <button class="btn" type="button" onclick="copyPitch()">复制投递话术</button>
         </div>
       </div>
 
-      <aside class="card info-card">
-        <div>
-          <div style="font-weight:700;font-size:15.5px;margin-bottom:10px;">基本信息 &amp; 联系名片</div>
-          <div class="info-row">
-            <span class="info-label">院校专业</span>
-            <span class="info-val">湖南警察学院 · 信息安全</span>
+      <aside class="card terminal-card">
+        <div class="terminal-head">
+          <div class="dots"><i></i><i></i><i></i></div>
+          <span>candidate-profile.json</span>
+        </div>
+        <div class="kv-list">
+          <div class="kv-row">
+            <span class="kv-k">education</span>
+            <span class="kv-v">湖南警察学院 · 信息安全</span>
           </div>
-          <div class="info-row">
-            <span class="info-label">年级学制</span>
-            <span class="info-val">2023 级（2023.09 - 2027.06）</span>
+          <div class="kv-row">
+            <span class="kv-k">graduation</span>
+            <span class="kv-v">2023.09 - 2027.06</span>
           </div>
-          <div class="info-row">
-            <span class="info-label">到岗时间</span>
-            <span class="info-val" style="color:var(--green);">随时可全职实习</span>
+          <div class="kv-row">
+            <span class="kv-k">availability</span>
+            <span class="kv-v" style="color: var(--emerald);">随时全职实习</span>
           </div>
-          <div class="info-row">
-            <span class="info-label">联系电话</span>
-            <span class="info-val copy-chip" onclick="copyText('18173597131', '已复制手机号')">18173597131</span>
+          <div class="kv-row">
+            <span class="kv-k">phone</span>
+            <span class="kv-v copy-chip" onclick="copyText('18173597131', '已复制手机号')">18173597131</span>
           </div>
-          <div class="info-row">
-            <span class="info-label">电子邮箱</span>
-            <span class="info-val copy-chip" onclick="copyText('2166136579@qq.com', '已复制邮箱')">2166136579@qq.com</span>
+          <div class="kv-row">
+            <span class="kv-k">email</span>
+            <span class="kv-v copy-chip" onclick="copyText('2166136579@qq.com', '已复制邮箱')">2166136579@qq.com</span>
           </div>
-          <div class="info-row">
-            <span class="info-label">GitHub</span>
-            <span class="info-val"><a href="https://github.com/yzxz111" target="_blank" rel="noopener" style="color:var(--accent);">github.com/yzxz111 ↗</a></span>
+          <div class="kv-row">
+            <span class="kv-k">verification</span>
+            <span class="kv-v" style="font-family: var(--mono); font-size: 12px; color: var(--text-muted);">294+25 · 17 pytest · 13+15</span>
           </div>
         </div>
       </aside>
     </section>
 
-    <!-- Architecture -->
-    <section id="architecture">
+    <!-- Interactive Simulator -->
+    <section id="simulator">
       <div class="sec-head">
-        <h2 class="sec-title">三个独立开发项目的联动架构</h2>
-        <span class="sec-desc">Agent 应用与桌面客户端 × 统一模型网关</span>
+        <h2 class="sec-title"><span class="sec-num">INTERACTIVE</span>三层全链路协议 &amp; 故障演练台</h2>
+        <span class="sec-desc">点击下方真实异常场景，查看代码级链路流转与容错边界</span>
       </div>
-      <div class="arch-grid">
-        <div class="arch-box">
-          <div class="arch-tag">LAYER 01 · AGENT / DESKTOP</div>
-          <h3>LogOps-Agent 与一加灵犀</h3>
-          <p>LogOps-Agent：LangGraph 状态机、Agentic Hybrid RAG 与 FastMCP 只读取证工具。一加灵犀：Electron / React 桌面交互、SSE 流式聊天与本地历史管理；支持独立运行与自研中台 OpenAI 兼容契约对接。</p>
+
+      <div class="card sim-shell">
+        <div class="sim-toolbar">
+          <div class="sim-scenarios">
+            <button class="sim-btn active" type="button" onclick="runScenario('sse_normal', this)">01 正常 SSE 分片与心跳</button>
+            <button class="sim-btn" type="button" onclick="runScenario('lua_429', this)">02 准入 429 与 Lua PTTL 保护</button>
+            <button class="sim-btn" type="button" onclick="runScenario('mid_stream_err', this)">03 流中异常防重复计费</button>
+            <button class="sim-btn" type="button" onclick="runScenario('hitl_guard', this)">04 LogOps 高危 HITL 拦截</button>
+          </div>
+          <span style="font-family: var(--mono); font-size: 11.5px; color: var(--text-dim);" id="simReqId">X-Request-ID: req_8f2a9c10</span>
         </div>
-        <div class="arch-arrow">
-          <span>SSE 流式调用</span>
-          <span>⇄ X-Request-ID ⇄</span>
-          <span>429 有限退避</span>
-        </div>
-        <div class="arch-box">
-          <div class="arch-tag">LAYER 02 · JAVA 21 / INFRA</div>
-          <h3>一加 AI 中台</h3>
-          <p>OpenAPI 3.1 契约 · WebFlux SSE UTF-8 跨块与心跳帧处理 · Redis Lua 共享并发集合 TTL 修复 · 294 项网关回归 + 25 项协议测试。</p>
+
+        <div class="sim-body">
+          <div class="arch-nodes">
+            <div class="arch-node" id="nodeGateway">
+              <div class="node-tag">LAYER 01 · GATEWAY</div>
+              <div class="node-name">一加 AI 中台</div>
+              <div class="node-sub" id="subGateway">WebFlux · Redis Lua</div>
+            </div>
+            <div class="arch-pipe" id="pipe1">── /v1 SSE ──▶</div>
+            <div class="arch-node" id="nodeAgent">
+              <div class="node-tag">LAYER 02 · AGENT</div>
+              <div class="node-name">LogOps-Agent</div>
+              <div class="node-sub" id="subAgent">LangGraph · Hybrid RAG</div>
+            </div>
+            <div class="arch-pipe" id="pipe2">── IPC/HTTP ──▶</div>
+            <div class="arch-node" id="nodeClient">
+              <div class="node-tag">LAYER 03 · CLIENT</div>
+              <div class="node-name">一加灵犀工作台</div>
+              <div class="node-sub" id="subClient">Electron · Sandbox</div>
+            </div>
+          </div>
+
+          <div class="hitl-bar" id="hitlBar">
+            <span><strong>[LangGraph interrupt]</strong> 检测到高危指令 <code>FLUSHALL</code>，状态机已挂起在 <code>MemorySaver</code>（<code>thread_id: thr_04</code>），等待人工审批：</span>
+            <div style="display:flex;gap:8px;">
+              <button class="btn" type="button" onclick="resolveHitl(false)">拒绝并降级只读建议</button>
+              <button class="btn btn-accent" type="button" onclick="resolveHitl(true)">批准继续</button>
+            </div>
+          </div>
+
+          <div class="trace-console" id="traceConsole"></div>
         </div>
       </div>
     </section>
@@ -587,27 +798,103 @@
     <!-- Projects -->
     <section id="projects">
       <div class="sec-head">
-        <h2 class="sec-title">核心项目经历</h2>
-        <span class="sec-desc">所有指标均来自仓库代码与实测报告</span>
+        <h2 class="sec-title"><span class="sec-num">PROJECTS</span>核心项目与源码机制验证</h2>
+        <span class="sec-desc">按「底层网关 → 中间智能体 → 上层桌面端」架构顺序呈现</span>
+      </div>
+
+      <div class="project-tabs">
+        <button class="p-tab active" type="button" onclick="filterProjects('all', this)">全部 3 个项目</button>
+        <button class="p-tab" type="button" onclick="filterProjects('p1', this)">01 一加 AI 中台</button>
+        <button class="p-tab" type="button" onclick="filterProjects('p2', this)">02 LogOps-Agent</button>
+        <button class="p-tab" type="button" onclick="filterProjects('p3', this)">03 一加灵犀</button>
       </div>
 
       <div class="projects-grid">
-        <!-- Project 1 -->
-        <article class="card">
+        <!-- Project 1: 一加 AI 中台 -->
+        <article class="card project-card" data-proj="p1">
           <div class="project-top">
             <div>
-              <div class="project-title">LogOps-Agent 智能排障平台</div>
-              <a href="https://github.com/yzxz111/logops-agent" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:13px;color:var(--accent);">
-                github.com/yzxz111/logops-agent ↗
-              </a>
+              <div class="project-title">01 · 一加 AI 中台（模型接入与网关）</div>
+              <a class="project-link" href="https://github.com/yzxz111/yijia-ai-platform" target="_blank" rel="noopener">github.com/yzxz111/yijia-ai-platform ↗</a>
             </div>
-            <span class="project-role">个人独立开发 · Python / Agent</span>
+            <span class="project-role">个人项目 · Java / Infra</span>
           </div>
           <p class="project-intro">
-            面向微服务与网关异常排查场景，构建融合 LangGraph 状态机、Agentic RAG 与只读 MCP 工具的自动诊断平台，直连自研模型网关实现流式推理与链路追踪。
+            面向大模型调用构建的 API 管理与模型网关底座，打通模型接入、流式协议治理、并发限流及控制台，为上层应用提供统一接口。
           </p>
           <div class="stack-list">
-            <span class="pill">Python 3.11</span>
+            <span class="pill">Java</span>
+            <span class="pill">Spring Boot WebFlux</span>
+            <span class="pill">PostgreSQL</span>
+            <span class="pill">Redis Lua</span>
+            <span class="pill">OpenAPI 3.1</span>
+            <span class="pill">Node.js</span>
+            <span class="pill">Vue 3</span>
+          </div>
+          <ul class="bullets">
+            <li class="bullet-item">
+              <strong>模型接入与同源安全</strong>
+              实现 OpenAPI 3.1 接口契约与 Node.js 客户端，串联登录、Bootstrap 托管 API Key、模型目录、额度查询与 SSE 对话，校验返回地址防凭证重定向。
+            </li>
+            <li class="bullet-item">
+              <strong>SSE 治理与防重复计费</strong>
+              处理 UTF-8 跨块、15s <code>: keep-alive</code> 心跳、usage 及流中 <code>failureFrame</code>；通过 <code>FirstChunkGate</code> 划分首帧前后边界，仅对准入 429 有限退避。
+            </li>
+            <li class="bullet-item">
+              <strong>Redis Lua 租约 TTL 修复</strong>
+              修复 <code>RedisRequestLimitStore</code> 中短租约覆盖缩短共享并发 ZSET TTL 的缺陷；补齐 <code>Retry-After</code>、结构化错误码与 <code>X-Request-ID</code>。
+            </li>
+            <li class="bullet-item">
+              <strong>三段式结算与回归验证</strong>
+              执行 Reserve → Settle → Release 额度预留结算，完成控制台联调；基于本地模拟上游通过 294 项网关回归与 25 项客户端协议测试。
+            </li>
+          </ul>
+
+          <div class="lab-box">
+            <div class="lab-head">
+              <div class="lab-title">交互对比：Redis Lua 共享并发集合 TTL 缺陷演示</div>
+              <div class="toggle-group">
+                <button class="tab-btn active" type="button" onclick="toggleLua('fixed', this)">修复后 (PTTL + max)</button>
+                <button class="tab-btn" type="button" onclick="toggleLua('bug', this)">修复前 (直接 PEXPIRE)</button>
+              </div>
+            </div>
+            <div class="lua-bars">
+              <div class="lua-row">
+                <span>长租约请求 A (600s)</span>
+                <div class="lua-track"><div class="lua-fill" id="luaBarA" style="width: 100%; background: var(--accent);"></div></div>
+                <span id="luaValA">TTL 660s</span>
+              </div>
+              <div class="lua-row">
+                <span>短租约请求 B (30s)</span>
+                <div class="lua-track"><div class="lua-fill" id="luaBarB" style="width: 14%; background: var(--emerald);"></div></div>
+                <span id="luaValB">Lease 30s</span>
+              </div>
+              <div class="lua-row">
+                <span>共享 ZSET 集合存活</span>
+                <div class="lua-track"><div class="lua-fill" id="luaBarSet" style="width: 100%; background: var(--emerald);"></div></div>
+                <span id="luaValSet" style="color: var(--emerald); font-weight: 700;">保留 660s ✓</span>
+              </div>
+            </div>
+            <div class="lua-note" id="luaNote">
+              源码实现（<code>RedisRequestLimitStore.java</code>）：在 <code>ZADD</code> 前读取 <code>PTTL</code>，取 <code>math.max(previous_ttl, leaseTtl + 60000)</code>，保证短租约绝不缩短长租约正在使用的共享并发集合。
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2: LogOps-Agent -->
+        <article class="card project-card" data-proj="p2">
+          <div class="project-top">
+            <div>
+              <div class="project-title">02 · LogOps-Agent 智能排障平台</div>
+              <a class="project-link" href="https://github.com/yzxz111/logops-agent" target="_blank" rel="noopener">github.com/yzxz111/logops-agent ↗</a>
+            </div>
+            <span class="project-role">个人项目 · Python / Agent</span>
+          </div>
+          <p class="project-intro">
+            面向微服务异常排查研发的智能排障 Agent 后端系统，对接模型网关输出带来源引用的诊断报告，支持 OpenAI 兼容。
+          </p>
+          <div class="stack-list">
+            <span class="pill">Python</span>
             <span class="pill">FastAPI (SSE)</span>
             <span class="pill">LangGraph</span>
             <span class="pill">Qdrant</span>
@@ -618,110 +905,66 @@
           </div>
           <ul class="bullets">
             <li class="bullet-item">
-              <strong>状态机编排</strong>
-              基于 LangGraph 设计异常提取、多路取证、相关性评估与二次检索循环流程；内置最大步数/Token 预算熔断与高危操作人工确认（中断恢复）。
+              <strong>LangGraph 状态机与 HITL</strong>
+              构建异常提取、多路取证、相关性评估、二次检索与 <code>interrupt()</code> / <code>Command(resume)</code> 人工确认恢复流程；配置步数与 Token 预算熔断。
             </li>
             <li class="bullet-item">
-              <strong>Agentic RAG</strong>
-              对 25 篇故障手册按章节分块（125 块），结合 BM25 与 Qdrant RRF 混合检索、Query 改写与多样性重排，并强制输出 Citation 引用溯源。
+              <strong>章节分块与 RRF 混合检索</strong>
+              25 篇手册按章节切分为 125 块（保留行号溯源），结合 BM25 + Qdrant RRF（k=60）、Query 改写与按 <code>doc_id</code> 多样性重排。
             </li>
             <li class="bullet-item">
-              <strong>工具与上下文</strong>
-              基于 FastMCP 封装只读日志切片与源码定位工具（防路径穿越与 Pydantic 校验）；实现堆栈脱敏、错误窗口提取及 Tool Result 摘要压缩。
+              <strong>只读 MCP 与上下文治理</strong>
+              基于 FastMCP 封装只读日志/源码工具，落地 <code>resolve()</code> 防路径穿越校验、8 类正则脱敏及报错窗口压缩。
             </li>
             <li class="bullet-item">
-              <strong>离线评测与单测</strong>
-              构建 30 条离线故障评测集，Agentic 模式 Recall@3 达 100.00%、MRR 0.9833，工具与根因命中率 100%，17 项 pytest 全部通过。
+              <strong>离线评测与质量边界</strong>
+              30 条离线评测集 Recall@3 达 100%、MRR 达 0.9833，17 项 pytest 全通过；并主动识别基础集 BM25 偏高问题，设计无错误码口语样本持续补强。
             </li>
           </ul>
 
-          <div class="eval-panel">
-            <div class="eval-header">
-              <strong style="font-size:14px;">30 条故障评测集（125 分块）RAG 模式对比实测</strong>
-              <div class="eval-tabs">
-                <button class="tab-btn active" type="button" onclick="switchMetric('recall3', this)">Recall@3</button>
-                <button class="tab-btn" type="button" onclick="switchMetric('mrr', this)">MRR</button>
-                <button class="tab-btn" type="button" onclick="switchMetric('recall1', this)">Recall@1</button>
+          <div class="lab-box dual-lab">
+            <div class="sub-panel">
+              <div class="lab-head" style="margin-bottom: 6px;">
+                <div class="lab-title" style="font-size: 13px;">30 条故障集 RAG 对比实测</div>
+                <div class="toggle-group">
+                  <button class="tab-btn active" type="button" onclick="switchMetric('recall3', this)">Recall@3</button>
+                  <button class="tab-btn" type="button" onclick="switchMetric('mrr', this)">MRR</button>
+                  <button class="tab-btn" type="button" onclick="switchMetric('recall1', this)">Recall@1</button>
+                </div>
+              </div>
+              <div class="bars" id="evalBars"></div>
+              <div class="metrics-strip">
+                <div class="metric-box"><div class="metric-num">100%</div><div class="metric-lbl">工具准确率</div></div>
+                <div class="metric-box"><div class="metric-num">100%</div><div class="metric-lbl">根因命中</div></div>
+                <div class="metric-box"><div class="metric-num">21.93%</div><div class="metric-lbl">压缩率</div></div>
+                <div class="metric-box"><div class="metric-num">17 / 17</div><div class="metric-lbl">pytest</div></div>
               </div>
             </div>
-            <div class="bars" id="evalBars"></div>
-            <div class="metrics-strip">
-              <div class="metric-box">
-                <div class="metric-num">100%</div>
-                <div class="metric-lbl">MCP 工具准确率</div>
+
+            <div class="sub-panel">
+              <div class="lab-head" style="margin-bottom: 6px;">
+                <div class="lab-title" style="font-size: 13px;">堆栈脱敏 &amp; 窗口压缩对比</div>
+                <div class="toggle-group">
+                  <button class="tab-btn active" type="button" onclick="toggleSanitize('clean', this)">脱敏压缩后</button>
+                  <button class="tab-btn" type="button" onclick="toggleSanitize('raw', this)">原始危险堆栈</button>
+                </div>
               </div>
-              <div class="metric-box">
-                <div class="metric-num">100%</div>
-                <div class="metric-lbl">根因定位命中率</div>
-              </div>
-              <div class="metric-box">
-                <div class="metric-num">21.93%</div>
-                <div class="metric-lbl">上下文压缩率</div>
-              </div>
-              <div class="metric-box">
-                <div class="metric-num">17 / 17</div>
-                <div class="metric-lbl">pytest 通过用例</div>
-              </div>
+              <div class="code-diff" id="sanitizeBox"></div>
             </div>
           </div>
         </article>
 
-        <!-- Project 2 -->
-        <article class="card">
+        <!-- Project 3: 一加灵犀 -->
+        <article class="card project-card" data-proj="p3">
           <div class="project-top">
             <div>
-              <div class="project-title">一加 AI 中台 · AI 模型接入与网关平台</div>
-              <a href="https://github.com/yzxz111/yijia-ai-platform" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:13px;color:var(--accent);">
-                github.com/yzxz111/yijia-ai-platform ↗
-              </a>
+              <div class="project-title">03 · 一加灵犀 AI 桌面工作台</div>
+              <a class="project-link" href="https://github.com/yzxz111/yijia-lingxi" target="_blank" rel="noopener">github.com/yzxz111/yijia-lingxi ↗</a>
             </div>
-            <span class="project-role">个人独立开发 · Java / Infra</span>
+            <span class="project-role">个人项目 · Electron / React</span>
           </div>
           <p class="project-intro">
-            面向大模型调用，独立设计并实现 API 管理与模型网关平台，完成下游应用接入、流式协议处理、并发限流、控制台功能开发与联调，为 Agent 和桌面客户端提供统一模型调用底座。
-          </p>
-          <div class="stack-list">
-            <span class="pill">Java 21</span>
-            <span class="pill">Spring Boot WebFlux</span>
-            <span class="pill">PostgreSQL</span>
-            <span class="pill">Redis Lua</span>
-            <span class="pill">OpenAPI 3.1</span>
-            <span class="pill">Node.js</span>
-            <span class="pill">Vue 3</span>
-          </div>
-          <ul class="bullets">
-            <li class="bullet-item">
-              <strong>模型接入</strong>
-              补充 OpenAPI 3.1 接口契约及 Node.js 客户端，串联账号登录、托管 API Key、模型列表、实时额度和流式对话。
-            </li>
-            <li class="bullet-item">
-              <strong>流式处理</strong>
-              处理 UTF-8 跨块、SSE 心跳、usage 帧与结束标记，识别截断和流中错误；仅对明确的准入 429 有限退避，避免重复生成与计费。
-            </li>
-            <li class="bullet-item">
-              <strong>限流修复</strong>
-              修复 Redis Lua 脚本中短租约缩短共享并发集合 TTL 的问题，补齐 Retry-After、结构化错误和请求 ID，便于调用端退避与排障。
-            </li>
-            <li class="bullet-item">
-              <strong>功能与验证</strong>
-              恢复用户 API Key 自助管理及控制台入口；使用本地模拟模型上游联调，完成 294 项网关专项回归与 25 项客户端协议测试。
-            </li>
-          </ul>
-        </article>
-
-        <!-- Project 3 -->
-        <article class="card">
-          <div class="project-top">
-            <div>
-              <div class="project-title">一加灵犀 AI 桌面工作台</div>
-              <a href="https://github.com/yzxz111/yijia-lingxi" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:13px;color:var(--accent);">
-                github.com/yzxz111/yijia-lingxi ↗
-              </a>
-            </div>
-            <span class="project-role">个人独立开发 · Electron / React</span>
-          </div>
-          <p class="project-intro">
-            面向写作、编程与学习场景，独立设计并实现一加 AI 中台的桌面客户端，通过 OpenAI 兼容接口获取模型目录、实时额度和流式聊天响应，完成桌面交互、上下文管理与本地数据管理。
+            基于一加 AI 中台打造的桌面工作台，按 OpenAI 兼容契约接入模型目录、实时额度与流式对话，管理上下文与本地数据。
           </p>
           <div class="stack-list">
             <span class="pill">Electron</span>
@@ -735,22 +978,35 @@
           </div>
           <ul class="bullets">
             <li class="bullet-item">
-              <strong>桌面交互</strong>
-              实现多轮流式聊天、六类场景助手、本地历史与全文搜索、回复收藏、文本附件及 Markdown 导出。
+              <strong>多轮交互与流式取消</strong>
+              实现多轮流式对话、6 类助手、历史搜索、收藏、文本附件（二进制 <code>\0</code> 检测）与 Markdown 导出；经 <code>AbortController</code> 立即中止实际网关流。
             </li>
             <li class="bullet-item">
-              <strong>流式可靠性</strong>
-              封装 UTF-8 增量解码与 SSE 帧解析，处理心跳、usage、结束标记、流中错误与断流；取消生成会中止实际请求，生成请求不自动重试以避免重复计费。
+              <strong>流式解码与上下文净化</strong>
+              基于 <code>TextDecoder('utf-8', {fatal:true})</code> 增量解码防跨块乱码，过滤未完成/失败消息不入下轮上下文，生成请求绝不自动重试。
             </li>
             <li class="bullet-item">
-              <strong>桌面安全</strong>
-              通过受限 preload / IPC 完成网络适配，启用上下文隔离与沙箱、禁用渲染进程 Node.js；API Key 仅在内存中使用，Markdown 经 DOMPurify 净化后展示。
+              <strong>桌面沙箱与内存态密钥</strong>
+              启用上下文隔离、沙箱并禁用渲染进程 Node.js；受限 <code>preload / IPC</code> 代理网络并校验 <code>senderFrame</code>，API Key 仅驻留内存不落盘，DOMPurify 禁 <code>img/iframe</code>。
             </li>
             <li class="bullet-item">
-              <strong>打包与本地验证</strong>
-              完成 Windows x64 免安装打包与启动验证；本地验证记录中 13 项协议测试、15 项受控服务桌面交互测试通过。演示与受控服务模式明确隔离标记，保障验证可信度。
+              <strong>打包与受控环境验收</strong>
+              完成 Windows x64 免安装绿色版打包；在本地受控 HTTP 服务下通过 13 项协议与 15 项桌面端交互测试。
             </li>
           </ul>
+
+          <div class="lab-box">
+            <div class="lab-head" style="margin-bottom: 8px;">
+              <div class="lab-title">交互核查：桌面端安全隔离边界（点击查看防线细节）</div>
+            </div>
+            <div class="sec-chips">
+              <button class="sec-chip active" type="button" onclick="showSecDetail('sandbox', this)">contextIsolation + sandbox</button>
+              <button class="sec-chip" type="button" onclick="showSecDetail('ipc', this)">受限 preload + senderFrame 校验</button>
+              <button class="sec-chip" type="button" onclick="showSecDetail('memkey', this)">API Key 纯内存态不落盘</button>
+              <button class="sec-chip" type="button" onclick="showSecDetail('xss', this)">DOMPurify + 外链复制拦截</button>
+            </div>
+            <div class="sec-detail" id="secDetail"></div>
+          </div>
         </article>
       </div>
     </section>
@@ -758,25 +1014,25 @@
     <!-- Skills -->
     <section id="skills">
       <div class="sec-head">
-        <h2 class="sec-title">专业技能矩阵</h2>
+        <h2 class="sec-title"><span class="sec-num">SKILLS</span>专业技能矩阵</h2>
         <span class="sec-desc">严格对齐项目源码中的真实实践</span>
       </div>
       <div class="skills-grid">
         <div class="card skill-card">
-          <h3>Agent 与 RAG</h3>
-          <p>熟悉 LLM Token 计量与结构化输出；掌握 LangGraph 状态机编排、Agentic 混合检索 RAG（BM25+Qdrant+RRF/重排）、MCP 工具封装、上下文压缩及 Eval 评测。</p>
+          <h3>Agent &amp; RAG</h3>
+          <p>具备 LangGraph 状态机（HITL 中断恢复、熔断）、混合检索 RAG（BM25 + Qdrant RRF + 重排）、FastMCP 只读安全封装与上下文脱敏压缩实践。</p>
         </div>
         <div class="card skill-card">
-          <h3>后端与语言</h3>
-          <p>熟悉 Python（FastAPI/Pydantic）与 Java 21（Spring Boot/WebFlux），具备 PostgreSQL、Redis 协议服务、OpenAPI 3.1 契约及 SSE 流式协议开发实践。</p>
+          <h3>Backend &amp; Infra</h3>
+          <p>熟悉 Python（FastAPI / Pydantic）与 Java（Spring Boot / WebFlux），具备 PostgreSQL、Redis Lua 并发限流、OpenAPI 3.1 契约及 SSE 流式治理经验。</p>
         </div>
         <div class="card skill-card">
-          <h3>前端与工程</h3>
-          <p>使用 Vue 3、TypeScript 完成控制台联调；掌握 Git 常用操作，具备 pytest 单元测试、客户端协议测试与网关回归测试实践。</p>
+          <h3>Client &amp; Security</h3>
+          <p>使用 React / Electron / Vite 开发桌面工作台（受限 IPC 沙箱、DOMPurify），使用 Vue 3 / TypeScript 联调控制台；使用 Git、pytest 与 Playwright。</p>
         </div>
         <div class="card skill-card">
-          <h3>AI 辅助开发</h3>
-          <p>使用 Claude Code、Codex、DeepSeek 等工具辅助需求拆解、代码实现与问题排查，结合自动化测试、评测集与链路日志核验结果。</p>
+          <h3>AI-Assisted Engineering</h3>
+          <p>使用 Antigravity、Claude Code、Codex 等工具辅助需求拆解、代码实现与问题排查，结合自动化测试、评测集与链路日志核验结果。</p>
         </div>
       </div>
     </section>
@@ -784,26 +1040,26 @@
     <!-- Pitch -->
     <section id="pitch">
       <div class="sec-head">
-        <h2 class="sec-title">快速投递 / 个人简介</h2>
-        <button class="btn" type="button" onclick="copyPitch()">一键复制打招呼话术</button>
+        <h2 class="sec-title"><span class="sec-num">PITCH</span>快速投递 / 一键打招呼话术</h2>
+        <button class="btn btn-accent" type="button" onclick="copyPitch()">一键复制话术</button>
       </div>
-      <div class="card pitch-box">
+      <div class="card">
         <div class="pitch-text" id="pitchContent">您好！我是湖南警察学院信息安全专业 2023 级本科生陈炜（2027 届，目前可随时全职到岗），想应聘贵司【Agent 工程师 / AI 开发实习】岗位。
 
-以下三个项目均由我个人独立完成，覆盖大模型网关、Agent 应用与桌面客户端：
-1. 智能排障平台（LogOps-Agent，Python/FastAPI）：基于 LangGraph 构建循环状态机与人工确认机制，实现 BM25 + Qdrant RRF 的 Agentic RAG 检索与 Citation 溯源，并封装只读 FastMCP 工具与上下文压缩模块，在 30 条评测集上达成 Recall@3 100%、MRR 0.9833、17 项 pytest 全通过。
-GitHub：<a href="https://github.com/yzxz111/logops-agent" target="_blank" rel="noopener">https://github.com/yzxz111/logops-agent</a>
-2. 一加 AI 中台（AI 模型接入与网关平台，Java 21/WebFlux）：独立完成平台开发与联调，实现 OpenAPI 3.1 契约、SSE UTF-8 跨块流式处理与 429 有限退避，修复 Redis Lua 并发集合 TTL 缺陷，并通过 294 项网关回归与 25 项协议测试。
-GitHub：<a href="https://github.com/yzxz111/yijia-ai-platform" target="_blank" rel="noopener">https://github.com/yzxz111/yijia-ai-platform</a>
-3. 一加灵犀 AI 桌面工作台（Electron/React/Vite）：独立实现多轮流式聊天、场景助手、历史与收藏、文本附件及 Markdown 导出；封装 SSE 解码与请求取消机制，通过受限 IPC 对接网关，并完成 Windows 免安装打包与本地协议、桌面交互验证。
-GitHub：<a href="https://github.com/yzxz111/yijia-lingxi" target="_blank" rel="noopener">https://github.com/yzxz111/yijia-lingxi</a>
+在校期间我围绕大模型工程落地构建了一套三层联动项目（底层模型网关 → 中间 Agent 排障 → 上层桌面工作台）：
+1. 一加 AI 中台（Java / WebFlux）：作为统一模型接入与网关底座，实现 OpenAPI 3.1 契约、SSE UTF-8 跨块流式处理与准入 429 有限退避，修复 Redis Lua 并发集合 TTL 缺陷，并通过 294 项网关回归与 25 项协议测试。
+GitHub：<a href="https://github.com/yzxz111/yijia-ai-platform" target="_blank" rel="noopener" style="color:var(--accent);">https://github.com/yzxz111/yijia-ai-platform</a>
+2. LogOps-Agent 智能排障平台（Python / FastAPI）：基于网关底座构建排障智能体，采用 LangGraph 循环状态机与人工确认机制，实现 BM25 + Qdrant RRF 混合检索与 Citation 溯源，封装只读 FastMCP 工具与上下文压缩，在 30 条评测集上达成 Recall@3 100%、MRR 0.9833、17 项 pytest 全通过。
+GitHub：<a href="https://github.com/yzxz111/logops-agent" target="_blank" rel="noopener" style="color:var(--accent);">https://github.com/yzxz111/logops-agent</a>
+3. 一加灵犀 AI 桌面工作台（Electron / React / Vite）：基于一加 AI 中台实现多轮流式聊天、场景助手、历史与收藏、文本附件及 Markdown 导出；封装 SSE 解码与 AbortController 请求取消机制，落地受限 IPC 沙箱与 DOMPurify 净化，并完成 Windows 免安装打包与本地协议、桌面交互验证。
+GitHub：<a href="https://github.com/yzxz111/yijia-lingxi" target="_blank" rel="noopener" style="color:var(--accent);">https://github.com/yzxz111/yijia-lingxi</a>
 
 GitHub：https://github.com/yzxz111 ｜ 手机：18173597131 ｜ 邮箱：2166136579@qq.com</div>
       </div>
     </section>
 
     <footer>
-      <span>© 2026 陈炜 · Agent 工程师 / AI 开发实习个人主页</span>
+      <span>© 2026 陈炜 · Agent 工程师 / AI 开发实习交互式技术简历</span>
       <span>GitHub：<a href="https://github.com/yzxz111" target="_blank" rel="noopener" style="color:var(--accent);">https://github.com/yzxz111</a></span>
     </footer>
   </main>
@@ -811,6 +1067,140 @@ GitHub：https://github.com/yzxz111 ｜ 手机：18173597131 ｜ 邮箱：216613
   <div class="toast" id="toast">已复制到剪贴板</div>
 
   <script>
+    const SCENARIOS = {
+      sse_normal: {
+        reqId: 'X-Request-ID: req_8f2a9c10',
+        nodes: { gw: 'lit-ok', ag: '', cl: 'lit-ok' },
+        sub: { gw: 'FirstChunkGate · 心跳 15s', ag: '待命 (空闲)', cl: 'TextDecoder(stream:true)' },
+        pipes: ['── SSE Chunk + :keep-alive ──▶', '── 客户端直接消费 /v1 ──▶'],
+        hitl: false,
+        logs: [
+          ['STEP 01', 'ok', '一加灵犀 (IPC)', '渲染进程调 <code>window.lingxi.startChat</code>，经主进程闭包持有的 API Key 发起 <code>POST /v1/chat/completions</code>（禁止自动重试）。'],
+          ['STEP 02', 'ok', '一加 AI 中台', '<code>QuotaService.reserve()</code> 事务锁定最坏情况预留额；<code>FirstChunkGate.await()</code> 用 <code>switchOnFirst</code> 等待首帧。'],
+          ['STEP 03', 'ok', 'ChatStreamHeartbeat', '首帧发出后提交 HTTP 200；<code>publish()</code> 共享上游流并按 15s 发送注释帧 <code>: keep-alive</code> 防代理超时断连。'],
+          ['STEP 04', 'ok', 'shared/gateway.mjs', '接收按单字节拆分的 UTF-8 中文跨块与 <code>\\r\\n</code>，<code>TextDecoder(..., {stream:true})</code> 无乱码拼接，收尾 <code>usage</code> + <code>[DONE]</code> 并 <code>settle()</code> 结算。']
+        ]
+      },
+      lua_429: {
+        reqId: 'X-Request-ID: req_429_pttl',
+        nodes: { gw: 'lit-warn', ag: 'lit', cl: 'lit-warn' },
+        sub: { gw: 'RedisRequestLimitStore · Lua', ag: 'GatewayClient 退避等待', cl: '透传 Retry-After 提示' },
+        pipes: ['── HTTP 429 + Retry-After ──▶', '── 准入拒绝，未扣减额度 ──▶'],
+        hitl: false,
+        logs: [
+          ['STEP 01', 'warn', 'Redis Lua ACQUIRE', '4 维并发 ZSET（<code>{gateway-limits}:concurrency:*</code>）先 <code>ZREMRANGEBYSCORE</code> 清理过期租约，再校验 <code>ZCARD &gt;= limit</code>。'],
+          ['STEP 02', 'ok', 'PTTL 保护逻辑', '若允许进入：<code>ZADD</code> 前先读 <code>previous_ttl = PTTL</code>，<code>PEXPIRE</code> 取 <code>math.max(previous_ttl, leaseTtl + 60000)</code>，防止 30s 短租约缩短 600s 长租约集合。'],
+          ['STEP 03', 'warn', 'OpenAiErrorMapper', '准入触发限流后返回 HTTP 429 <code>rate_limit_exceeded</code> + <code>Retry-After</code>，此时未调用上游模型、不触发生成计费。'],
+          ['STEP 04', 'ok', 'GatewayClient', '仅对白名单准入 429 执行有限指数退避重连；若是 <code>daily_request_limit_exceeded</code>（Retry-After 至次日零点）超出等待预算则直接报错。']
+        ]
+      },
+      mid_stream_err: {
+        reqId: 'X-Request-ID: req_err_mid77',
+        nodes: { gw: 'lit-err', ag: '', cl: 'lit-err' },
+        sub: { gw: 'failureFrame (禁发 [DONE])', ag: '保留确定性基线报告', cl: '保留半截输出 · 不自动重试' },
+        pipes: ['── error JSON 帧 (无 [DONE]) ──▶', '── 不入下轮上下文 ──▶'],
+        hitl: false,
+        logs: [
+          ['STEP 01', 'ok', 'FirstChunkGate', '上游已输出前 120 字，HTTP 200 与 <code>text/event-stream</code> 响应头已提交给客户端，此时无法再修改状态码或切换渠道。'],
+          ['STEP 02', 'err', '上游流中途断开', '上游模型突然断开；若网关直接抛异常，客户端会收到 <code>ECONNRESET</code> 无法区分原因。'],
+          ['STEP 03', 'err', 'ResponseProtocol', '网关捕获后下发结构化 <code>failureFrame({"error":{"code":"provider_error"},"request_id":...})</code>，并<strong>严格禁止发送 [DONE]</strong>（防把半截失败包装成完整成功）。'],
+          ['STEP 04', 'warn', '一加灵犀 / 客户端', '界面保留已吐出的 120 字并标为 <code>error</code>，显示请求 ID 供对账；生成请求<strong>绝不自动重试</strong>防重复计费，且该错误消息过滤出下轮上下文。']
+        ]
+      },
+      hitl_guard: {
+        reqId: 'X-Request-ID: req_hitl_901',
+        nodes: { gw: 'lit', ag: 'lit-warn', cl: '' },
+        sub: { gw: '待命 (高危未放行前不调 LLM)', ag: 'human_confirm · interrupt()', cl: '—' },
+        pipes: ['── 脱敏/压窗后检索 ──▶', '── 等待人工审批 ──▶'],
+        hitl: true,
+        logs: [
+          ['STEP 01', 'ok', 'sanitize_text', '输入含 Redis 报错堆栈与 <code>Bearer eyJ...</code>、<code>sk-...</code>、<code>FLUSHALL</code>；正则脱敏替换敏感凭据，<code>extract_error_window</code> 折叠冗余框架帧。'],
+          ['STEP 02', 'ok', 'HybridRag + MCP', '25 篇手册（125 块）跑 BM25 + Qdrant RRF（k=60）定位根因文档，<code>_resolve_safe_child</code> 校验路径后只读切取错误窗口日志。'],
+          ['STEP 03', 'warn', 'high_risk_check', '识别用户请求含高危指令 <code>FLUSHALL</code>，路由至 <code>human_confirm</code>；调用 LangGraph <code>interrupt()</code> 将状态快照保存至 <code>MemorySaver</code> 并暂停流。'],
+          ['STEP 04', 'warn', '等待审批恢复', '请点击上方黄色交互栏中的【拒绝并降级只读建议】或【批准继续】，模拟 <code>Command(resume=...)</code> 唤醒状态机！']
+        ]
+      }
+    };
+
+    function runScenario(key, btn) {
+      document.querySelectorAll('.sim-btn').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+      const s = SCENARIOS[key];
+      document.getElementById('simReqId').textContent = s.reqId;
+
+      const nodeGw = document.getElementById('nodeGateway');
+      const nodeAg = document.getElementById('nodeAgent');
+      const nodeCl = document.getElementById('nodeClient');
+      [nodeGw, nodeAg, nodeCl].forEach(n => n.className = 'arch-node');
+      if (s.nodes.gw) nodeGw.classList.add(s.nodes.gw);
+      if (s.nodes.ag) nodeAg.classList.add(s.nodes.ag);
+      if (s.nodes.cl) nodeCl.classList.add(s.nodes.cl);
+
+      document.getElementById('subGateway').textContent = s.sub.gw;
+      document.getElementById('subAgent').textContent = s.sub.ag;
+      document.getElementById('subClient').textContent = s.sub.cl;
+      document.getElementById('pipe1').textContent = s.pipes[0];
+      document.getElementById('pipe2').textContent = s.pipes[1];
+      document.getElementById('hitlBar').classList.toggle('show', s.hitl);
+
+      renderTrace(s.logs);
+    }
+
+    function renderTrace(rows) {
+      const box = document.getElementById('traceConsole');
+      box.innerHTML = rows.map(([step, cls, mod, msg]) => `
+        <div class="trace-line">
+          <span class="trace-step">${step}</span>
+          <span class="trace-mod ${cls}">${mod}</span>
+          <span class="trace-msg">${msg}</span>
+        </div>
+      `).join('');
+    }
+
+    function resolveHitl(approved) {
+      const baseLogs = [...SCENARIOS.hitl_guard.logs];
+      if (approved) {
+        document.getElementById('nodeAgent').className = 'arch-node lit-ok';
+        document.getElementById('subAgent').textContent = 'Command(resume) -> 已批准';
+        baseLogs.push(['STEP 05', 'ok', 'Command(resume)', '收到 <code>approved: true</code>，从 <code>human_confirm</code> 恢复进入 <code>generate_report</code>，连同 Citation 溯源生成最终诊断报告。']);
+      } else {
+        document.getElementById('nodeAgent').className = 'arch-node lit-ok';
+        document.getElementById('subAgent').textContent = '已拒绝高危 -> 只读降级';
+        baseLogs.push(['STEP 05', 'ok', 'Command(resume)', '收到 <code>approved: false</code>，自动降级为只读排查与低风险替代方案（如用 <code>SCAN</code> 替代 <code>KEYS/FLUSHALL</code>），并保留安全审计记录。']);
+      }
+      document.getElementById('hitlBar').classList.remove('show');
+      renderTrace(baseLogs);
+    }
+
+    function filterProjects(target, btn) {
+      document.querySelectorAll('.p-tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.project-card').forEach(card => {
+        card.classList.toggle('hidden', target !== 'all' && card.dataset.proj !== target);
+      });
+    }
+
+    function toggleLua(mode, btn) {
+      btn.parentElement.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const setBar = document.getElementById('luaBarSet');
+      const setVal = document.getElementById('luaValSet');
+      const note = document.getElementById('luaNote');
+      if (mode === 'bug') {
+        setBar.style.width = '14%';
+        setBar.style.background = 'var(--rose)';
+        setVal.style.color = 'var(--rose)';
+        setVal.textContent = '被缩短至 90s ✗';
+        note.innerHTML = '<span style="color:var(--rose)">故障现场：</span>短租约请求 B 无脑执行 <code>PEXPIRE KEYS[i] (30s+60s)</code>，把整个共享并发 ZSET 缩短到 90s 后被 Redis 整键删除，导致长租约请求 A 并发计数丢失！';
+      } else {
+        setBar.style.width = '100%';
+        setBar.style.background = 'var(--emerald)';
+        setVal.style.color = 'var(--emerald)';
+        setVal.textContent = '保留 660s ✓';
+        note.innerHTML = '源码实现（<code>RedisRequestLimitStore.java</code>）：在 <code>ZADD</code> 前读取 <code>PTTL</code>，取 <code>math.max(previous_ttl, leaseTtl + 60000)</code>，保证短租约绝不缩短长租约正在使用的共享并发集合。';
+      }
+    }
+
     const EVAL_DATA = {
       recall3: [
         { name: 'bm25_only', val: 96.67, label: '96.67%', best: false },
@@ -832,22 +1222,42 @@ GitHub：https://github.com/yzxz111 ｜ 手机：18173597131 ｜ 邮箱：216613
       ],
     };
 
-    function renderBars(metricKey) {
+    function switchMetric(key, btn) {
+      btn.parentElement.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
       const container = document.getElementById('evalBars');
-      const rows = EVAL_DATA[metricKey] || EVAL_DATA.recall3;
+      const rows = EVAL_DATA[key] || EVAL_DATA.recall3;
       container.innerHTML = rows.map(r => `
         <div class="bar-row ${r.best ? 'best' : ''}">
           <span>${r.name}</span>
           <div class="bar-track"><div class="bar-fill" style="width:${r.val}%"></div></div>
-          <span style="text-align:right;font-weight:${r.best ? '700' : '400'};color:${r.best ? 'var(--green)' : 'var(--text-muted)'}">${r.label}</span>
+          <span style="text-align:right;font-weight:${r.best ? '700' : '400'};color:${r.best ? 'var(--emerald)' : 'var(--text-muted)'}">${r.label}</span>
         </div>
       `).join('');
     }
 
-    function switchMetric(key, btn) {
-      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    function toggleSanitize(mode, btn) {
+      btn.parentElement.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      renderBars(key);
+      const box = document.getElementById('sanitizeBox');
+      if (mode === 'raw') {
+        box.innerHTML = `2026-11-25 ERROR order-service - Authorization: <span class="hl-red">Bearer eyJhbGciOi...fakeJwt</span>\njdbc:mysql://db:3306?password=<span class="hl-red">ProdPass123!</span> | phone=<span class="hl-red">18173597131</span>\njava.sql.SQLTransactionRollbackException: Deadlock found (1213)\n  at org.springframework.aop.framework.CglibAopProxy...\n  at io.netty.channel.AbstractChannelHandlerContext...\n  ... (连续 18 行框架底层栈) ...\nCaused by: com.logops.order.OrderService.createOrder(L84)`;
+      } else {
+        box.innerHTML = `2026-11-25 ERROR order-service - Authorization: <span class="hl-ok">Bearer [REDACTED_JWT]</span>\njdbc:mysql://db:3306?password=<span class="hl-ok">[REDACTED_SECRET]</span> | phone=<span class="hl-ok">181****7131</span>\njava.sql.SQLTransactionRollbackException: Deadlock found (1213)\n  at org.springframework.aop.framework.CglibAopProxy...\n  <span class="hl-ok">... [折叠第三方框架冗余堆栈帧] ...</span>\nCaused by: <span class="hl-ok">com.logops.order.OrderService.createOrder(L84)</span>`;
+      }
+    }
+
+    const SEC_DETAILS = {
+      sandbox: '<strong>BrowserWindow 安全隔离（electron/main.mjs）</strong>：配置 <code>nodeIntegration: false</code>、<code>contextIsolation: true</code>、<code>sandbox: true</code>、<code>webSecurity: true</code>，同时通过 <code>setWindowOpenHandler</code> 与 <code>will-navigate</code> 拦截所有弹窗与跳转，确保模型输出哪怕包含恶意脚本也无法触达本机文件系统或 Node API。',
+      ipc: '<strong>最小暴露桥接（electron/preload.cjs）</strong>：只通过 <code>contextBridge</code> 暴露 7 个具体动作（如 <code>connect</code>、<code>startChat</code>、<code>stopChat</code>），绝不暴露原生 <code>ipcRenderer</code>；主进程每个 handler 均用 <code>trusted(event)</code> 校验 <code>event.senderFrame === mainFrame</code> 且 URL 精确匹配本地打包 <code>dist/index.html</code>。',
+      memkey: '<strong>凭据生命周期隔离</strong>：API Key 只通过 <code>gateway:connect</code> 传入主进程闭包变量 <code>let gateway = null</code>，绝不写入 <code>localStorage</code>、磁盘配置文件或对话历史；应用关闭或切换演示模式即销毁，渲染进程内无明文 Key 驻留（15 项集成测试第 14 项专项验证）。',
+      xss: '<strong>渲染输出净化（src/main.jsx）</strong>：所有模型返回的 Markdown 先经 <code>marked.parse</code> 转译，再由 <code>DOMPurify.sanitize(..., { FORBID_TAGS: [\'img\', \'style\', \'iframe\'], FORBID_ATTR: [\'style\'] })</code> 过滤外联像素与内联脚本；点击超链接拦截直接跳转，改为复制链接提示。'
+    };
+
+    function showSecDetail(key, btn) {
+      btn.parentElement.querySelectorAll('.sec-chip').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('secDetail').innerHTML = SEC_DETAILS[key];
     }
 
     function showToast(msg) {
@@ -876,7 +1286,10 @@ GitHub：https://github.com/yzxz111 ｜ 手机：18173597131 ｜ 邮箱：216613
       document.getElementById('themeToggle').textContent = isDark ? '切换深色' : '切换浅色';
     });
 
-    renderBars('recall3');
+    runScenario('sse_normal', document.querySelector('.sim-btn'));
+    switchMetric('recall3', document.querySelector('[onclick*="recall3"]'));
+    toggleSanitize('clean', document.querySelector('[onclick*="clean"]'));
+    showSecDetail('sandbox', document.querySelector('.sec-chip'));
   </script>
 </body>
 </html>
