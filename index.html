@@ -737,7 +737,7 @@
           </div>
           <div class="kv-row">
             <span class="kv-k">verification</span>
-            <span class="kv-v" style="font-family: var(--mono); font-size: 12px; color: var(--text-muted);">294+25 · 17 pytest · 13+15</span>
+            <span class="kv-v" style="font-family: var(--mono); font-size: 12px; color: var(--text-muted);">294+25 · 20 pytest + 4 E2E · 13+15</span>
           </div>
         </div>
       </aside>
@@ -891,7 +891,7 @@
             <span class="project-role">个人项目 · Python / Agent</span>
           </div>
           <p class="project-intro">
-            面向微服务异常排查研发的智能排障 Agent 后端系统，对接模型网关输出带来源引用的诊断报告，支持 OpenAI 兼容。
+            面向微服务异常排查研发的智能排障平台，包含 LangGraph 状态机、混合检索 RAG 与 React + Vite 流式排障驾驶舱，已完成与本地模型网关及真实大模型的端到端联调。
           </p>
           <div class="stack-list">
             <span class="pill">Python</span>
@@ -900,44 +900,45 @@
             <span class="pill">Qdrant</span>
             <span class="pill">BM25</span>
             <span class="pill">FastMCP</span>
-            <span class="pill">Pydantic</span>
-            <span class="pill">pytest</span>
+            <span class="pill">React</span>
+            <span class="pill">Vite</span>
+            <span class="pill">Playwright</span>
           </div>
           <ul class="bullets">
             <li class="bullet-item">
-              <strong>LangGraph 状态机与 HITL</strong>
-              构建异常提取、多路取证、相关性评估、二次检索与 <code>interrupt()</code> / <code>Command(resume)</code> 人工确认恢复流程；配置步数与 Token 预算熔断。
+              <strong>LangGraph 状态机与流式驾驶舱</strong>
+              构建异常提取、多路取证、相关性评估、二次检索与 <code>interrupt()</code> / <code>Command(resume)</code> 人工确认流程；打造 React + Vite 驾驶舱实时渲染节点流转图、HITL 审批弹窗与可点击 Citation 溯源高亮抽屉。
             </li>
             <li class="bullet-item">
-              <strong>章节分块与 RRF 混合检索</strong>
-              25 篇手册按章节切分为 125 块（保留行号溯源），结合 BM25 + Qdrant RRF（k=60）、Query 改写与按 <code>doc_id</code> 多样性重排。
+              <strong>口语化改写与 RRF 混合检索</strong>
+              25 篇手册按章节切分为 125 块（保留行号溯源），结合 BM25 + Qdrant RRF（k=60）、中文口语同义改写与改写锚点多样性重排，显著提升无精确错误码场景召回。
             </li>
             <li class="bullet-item">
-              <strong>只读 MCP 与上下文治理</strong>
-              基于 FastMCP 封装只读日志/源码工具，落地 <code>resolve()</code> 防路径穿越校验、8 类正则脱敏及报错窗口压缩。
+              <strong>只读 MCP 与上下文安全治理</strong>
+              基于 FastMCP 封装只读日志/源码工具与前端溯源接口，落地 <code>resolve()</code> 防路径穿越校验、8 类正则脱敏及报错窗口压缩（压缩率 32.20%）。
             </li>
             <li class="bullet-item">
-              <strong>离线评测与质量边界</strong>
-              30 条离线评测集 Recall@3 达 100%、MRR 达 0.9833，17 项 pytest 全通过；并主动识别基础集 BM25 偏高问题，设计无错误码口语样本持续补强。
+              <strong>40 条评测与真网关/模型联调</strong>
+              合入 10 条无错误码口语化故障（共 40 条），Agentic <code>Recall@1</code>/<code>Recall@3</code> 达 100%、<code>MRR</code> 达 1.0000（较 BM25 Recall@1 +10%）；20 项 pytest + 4 项 Playwright E2E 通过，并与本地 <code>yijia-ai-platform</code> 及 <code>gpt-5.6</code> 完成实测联调。
             </li>
           </ul>
 
           <div class="lab-box dual-lab">
             <div class="sub-panel">
               <div class="lab-head" style="margin-bottom: 6px;">
-                <div class="lab-title" style="font-size: 13px;">30 条故障集 RAG 对比实测</div>
+                <div class="lab-title" style="font-size: 13px;">40 条故障集 RAG 对比实测（含 10 条口语模糊样本）</div>
                 <div class="toggle-group">
-                  <button class="tab-btn active" type="button" onclick="switchMetric('recall3', this)">Recall@3</button>
+                  <button class="tab-btn active" type="button" onclick="switchMetric('recall1', this)">Recall@1</button>
+                  <button class="tab-btn" type="button" onclick="switchMetric('recall3', this)">Recall@3</button>
                   <button class="tab-btn" type="button" onclick="switchMetric('mrr', this)">MRR</button>
-                  <button class="tab-btn" type="button" onclick="switchMetric('recall1', this)">Recall@1</button>
                 </div>
               </div>
               <div class="bars" id="evalBars"></div>
               <div class="metrics-strip">
-                <div class="metric-box"><div class="metric-num">100%</div><div class="metric-lbl">工具准确率</div></div>
-                <div class="metric-box"><div class="metric-num">100%</div><div class="metric-lbl">根因命中</div></div>
-                <div class="metric-box"><div class="metric-num">21.93%</div><div class="metric-lbl">压缩率</div></div>
-                <div class="metric-box"><div class="metric-num">17 / 17</div><div class="metric-lbl">pytest</div></div>
+                <div class="metric-box"><div class="metric-num">100%</div><div class="metric-lbl">工具/根因命中</div></div>
+                <div class="metric-box"><div class="metric-num">1.0000</div><div class="metric-lbl">Agentic MRR</div></div>
+                <div class="metric-box"><div class="metric-num">32.20%</div><div class="metric-lbl">压缩率</div></div>
+                <div class="metric-box"><div class="metric-num">20 + 4</div><div class="metric-lbl">pytest / E2E</div></div>
               </div>
             </div>
 
@@ -1049,7 +1050,7 @@
 在校期间我围绕大模型工程落地构建了一套三层联动项目（底层模型网关 → 中间 Agent 排障 → 上层桌面工作台）：
 1. 一加 AI 中台（Java / WebFlux）：作为统一模型接入与网关底座，实现 OpenAPI 3.1 契约、SSE UTF-8 跨块流式处理与准入 429 有限退避，修复 Redis Lua 并发集合 TTL 缺陷，并通过 294 项网关回归与 25 项协议测试。
 GitHub：<a href="https://github.com/yzxz111/yijia-ai-platform" target="_blank" rel="noopener" style="color:var(--accent);">https://github.com/yzxz111/yijia-ai-platform</a>
-2. LogOps-Agent 智能排障平台（Python / FastAPI）：基于网关底座构建排障智能体，采用 LangGraph 循环状态机与人工确认机制，实现 BM25 + Qdrant RRF 混合检索与 Citation 溯源，封装只读 FastMCP 工具与上下文压缩，在 30 条评测集上达成 Recall@3 100%、MRR 0.9833、17 项 pytest 全通过。
+2. LogOps-Agent 智能排障平台（Python / FastAPI / React）：基于网关底座构建智能排障全栈应用，采用 LangGraph 循环状态机与人工确认机制，配套 React + Vite 流式驾驶舱（节点拓扑、HITL 弹窗与可点击 Citation 高亮抽屉），结合 BM25 + Qdrant RRF 与口语同义改写重排，在 40 条评测集（含 10 条无错误码口语故障）上达成 Recall@1/Recall@3 100%、MRR 1.0000（较 BM25 Recall@1 提升 10%），20 项 pytest + 4 项 Playwright E2E 全通过并完成本地网关与真实模型联调。
 GitHub：<a href="https://github.com/yzxz111/logops-agent" target="_blank" rel="noopener" style="color:var(--accent);">https://github.com/yzxz111/logops-agent</a>
 3. 一加灵犀 AI 桌面工作台（Electron / React / Vite）：基于一加 AI 中台实现多轮流式聊天、场景助手、历史与收藏、文本附件及 Markdown 导出；封装 SSE 解码与 AbortController 请求取消机制，落地受限 IPC 沙箱与 DOMPurify 净化，并完成 Windows 免安装打包与本地协议、桌面交互验证。
 GitHub：<a href="https://github.com/yzxz111/yijia-lingxi" target="_blank" rel="noopener" style="color:var(--accent);">https://github.com/yzxz111/yijia-lingxi</a>
@@ -1202,23 +1203,23 @@ GitHub：https://github.com/yzxz111 ｜ 手机：18173597131 ｜ 邮箱：216613
     }
 
     const EVAL_DATA = {
+      recall1: [
+        { name: 'bm25_only', val: 90.0, label: '90.00%', best: false },
+        { name: 'vector_only', val: 95.0, label: '95.00%', best: false },
+        { name: 'hybrid_rrf', val: 95.0, label: '95.00%', best: false },
+        { name: 'agentic', val: 100.0, label: '100.00%', best: true },
+      ],
       recall3: [
-        { name: 'bm25_only', val: 96.67, label: '96.67%', best: false },
-        { name: 'vector_only', val: 96.67, label: '96.67%', best: false },
-        { name: 'hybrid_rrf', val: 96.67, label: '96.67%', best: false },
+        { name: 'bm25_only', val: 97.5, label: '97.50%', best: false },
+        { name: 'vector_only', val: 97.5, label: '97.50%', best: false },
+        { name: 'hybrid_rrf', val: 97.5, label: '97.50%', best: false },
         { name: 'agentic', val: 100.0, label: '100.00%', best: true },
       ],
       mrr: [
-        { name: 'bm25_only', val: 95.83, label: '0.9583', best: false },
-        { name: 'vector_only', val: 96.67, label: '0.9667', best: false },
-        { name: 'hybrid_rrf', val: 96.67, label: '0.9667', best: false },
-        { name: 'agentic', val: 98.33, label: '0.9833', best: true },
-      ],
-      recall1: [
-        { name: 'bm25_only', val: 93.33, label: '93.33%', best: false },
-        { name: 'vector_only', val: 96.67, label: '96.67%', best: false },
-        { name: 'hybrid_rrf', val: 96.67, label: '96.67%', best: false },
-        { name: 'agentic', val: 96.67, label: '96.67%', best: true },
+        { name: 'bm25_only', val: 94.37, label: '0.9437', best: false },
+        { name: 'vector_only', val: 96.25, label: '0.9625', best: false },
+        { name: 'hybrid_rrf', val: 96.25, label: '0.9625', best: false },
+        { name: 'agentic', val: 100.0, label: '1.0000', best: true },
       ],
     };
 
@@ -1287,7 +1288,7 @@ GitHub：https://github.com/yzxz111 ｜ 手机：18173597131 ｜ 邮箱：216613
     });
 
     runScenario('sse_normal', document.querySelector('.sim-btn'));
-    switchMetric('recall3', document.querySelector('[onclick*="recall3"]'));
+    switchMetric('recall1', document.querySelector('[onclick*="recall1"]'));
     toggleSanitize('clean', document.querySelector('[onclick*="clean"]'));
     showSecDetail('sandbox', document.querySelector('.sec-chip'));
   </script>
